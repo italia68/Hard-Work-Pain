@@ -639,6 +639,137 @@
   }
   .footer-links a:hover { color: var(--gold); }
 
+  /* ── BLOG POST ── */
+  .post-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 48px;
+    border: none;
+    background: none;
+    padding: 0;
+    transition: opacity 0.2s;
+  }
+
+  .post-back:hover { opacity: 0.7; }
+
+  .post-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7vw, 72px);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .post-meta {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    margin-bottom: 52px;
+  }
+
+  .post-body {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .post-body h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin: 48px 0 16px;
+  }
+
+  .post-body h2 span { color: var(--gold); }
+
+  .post-body p { margin-bottom: 24px; }
+
+  .post-body strong { color: var(--white); font-weight: 600; }
+
+  .post-body .callout {
+    background: var(--card);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 32px 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .post-body ul {
+    margin: 0 0 24px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .post-body ul li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+
+  .post-body ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  .post-nav {
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .post-nav-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .post-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
@@ -651,7 +782,7 @@
     .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
     .stat-item:last-child { border-bottom: none; }
     footer { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
-    .blog-header, .contact-wrap, .app-hero { padding: 60px 20px 40px; }
+    .blog-header, .contact-wrap, .app-hero, .post-wrap { padding: 60px 20px 40px; }
     .app-cta { padding: 60px 20px; }
   }
 </style>
@@ -810,41 +941,60 @@
   </div>
 
   <div class="blog-grid">
-    <div class="blog-card">
+    <div class="blog-card" onclick="showPost(0)">
+      <div class="blog-tag">Tracking</div>
+      <div class="blog-title">Why You Should Be Logging Every Workout (And How to Start)</div>
+      <div class="blog-excerpt">Tracking your training is the single biggest differentiator between lifters who plateau and lifters who keep progressing. Here's the simplest way to start.</div>
+      <div class="blog-meta"><span>April 2026</span><span>4 min read</span></div>
+    </div>
+    <div class="blog-card" onclick="showPost(1)">
       <div class="blog-tag">Training</div>
       <div class="blog-title">Why Progressive Overload Is the Only Rule That Matters</div>
       <div class="blog-excerpt">Every program, every methodology, every coach eventually comes back to one principle: make it harder over time. Here's how to apply it without burning out.</div>
       <div class="blog-meta"><span>June 2026</span><span>5 min read</span></div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" onclick="showPost(2)">
       <div class="blog-tag">Cardio</div>
       <div class="blog-title">Les Mills vs Traditional Cardio: What the Data Actually Shows</div>
       <div class="blog-excerpt">Group fitness has a reputation. But strip away the hype and the science behind Les Mills classes is solid. We break it down set by set.</div>
       <div class="blog-meta"><span>June 2026</span><span>7 min read</span></div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" onclick="showPost(3)">
       <div class="blog-tag">Mindset</div>
       <div class="blog-title">How to Train When You Have Zero Motivation</div>
       <div class="blog-excerpt">Motivation is unreliable. Discipline is a skill. Here's the framework that keeps serious lifters going when the feeling isn't there.</div>
       <div class="blog-meta"><span>May 2026</span><span>4 min read</span></div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" onclick="showPost(4)">
       <div class="blog-tag">Recovery</div>
       <div class="blog-title">The Lifter's Guide to Sleep: The Most Underrated Performance Tool</div>
       <div class="blog-excerpt">You don't grow in the gym. You grow while you sleep. Most lifters are leaving gains on the table every single night.</div>
       <div class="blog-meta"><span>May 2026</span><span>6 min read</span></div>
     </div>
-    <div class="blog-card">
+    <div class="blog-card" onclick="showPost(5)">
       <div class="blog-tag">Nutrition</div>
       <div class="blog-title">Protein Math: How Much You Actually Need Per Day</div>
       <div class="blog-excerpt">The bro-science answer is 1g per pound. The real answer is more nuanced — and knowing the difference can change your results.</div>
       <div class="blog-meta"><span>April 2026</span><span>5 min read</span></div>
     </div>
-    <div class="blog-card">
-      <div class="blog-tag">Tracking</div>
-      <div class="blog-title">Why You Should Be Logging Every Workout (And How to Start)</div>
-      <div class="blog-excerpt">Tracking your training is the single biggest differentiator between lifters who plateau and lifters who keep progressing. Here's the simplest way to start.</div>
-      <div class="blog-meta"><span>April 2026</span><span>4 min read</span></div>
+  </div>
+</div>
+
+<!-- ══ BLOG POST ══ -->
+<div class="page" id="page-post">
+  <div class="post-wrap">
+    <button class="post-back" onclick="showPage('blog')">← Back to Blog</button>
+    <div class="post-tag" id="post-tag"></div>
+    <h1 class="post-title" id="post-title"></h1>
+    <div class="post-meta">
+      <span id="post-date"></span>
+      <span id="post-read"></span>
+    </div>
+    <div class="post-body" id="post-body"></div>
+    <div class="post-nav">
+      <button class="post-nav-btn" id="post-prev" onclick="navigatePost(-1)">← Previous</button>
+      <button class="post-nav-btn" onclick="showPage('blog')">All Posts</button>
+      <button class="post-nav-btn" id="post-next" onclick="navigatePost(1)">Next →</button>
     </div>
   </div>
 </div>
@@ -949,14 +1099,232 @@
 </footer>
 
 <script>
+  const posts = [
+    {
+      tag: 'Tracking',
+      title: 'Why You Should Be Logging Every Workout (And How to Start)',
+      date: 'April 2026',
+      read: '4 min read',
+      body: `
+        <p>There's a clear line between lifters who keep progressing year after year and lifters who look the same as they did two years ago. Most of the time, it comes down to one habit: the ones who progress are tracking their training. The ones who aren't, aren't.</p>
+
+        <h2>You <span>Can't Manage</span> What You Don't Measure</h2>
+        <p>Without a log, you're relying on memory. And memory is terrible at this. You might remember roughly what you lifted last week, but do you know exactly how many reps you got on your third set of Romanian deadlifts six weeks ago? No. And that means you can't intelligently progress from it.</p>
+        <div class="callout">A training log is the difference between guessing and actually knowing. Only one of those leads to consistent progress.</div>
+
+        <h2>What to <span>Track</span></h2>
+        <ul>
+          <li>Exercise name</li>
+          <li>Weight used (every set)</li>
+          <li>Reps completed (every set)</li>
+          <li>Rest time (optional but useful for intensity tracking)</li>
+          <li>Notes — how it felt, any form issues, energy level</li>
+        </ul>
+
+        <h2>How to <span>Start</span></h2>
+        <p>Don't overthink the format. A notes app works. A notebook works. But the best option is a dedicated tool that makes logging fast, searchable, and visible over time. That's exactly what Platemate is built for.</p>
+        <p>The first week of logging feels like extra work. By week three, it feels like the only way to train. Your past sessions become a roadmap — you can see exactly where you were, where you are, and where you're going.</p>
+
+        <h2>The <span>Compound Effect</span></h2>
+        <p>A training log is a form of accountability that compounds. Every session you log adds to a record that makes skipping harder and progressing clearer. Six months of data tells you more about your body than any program you could buy.</p>
+        <div class="callout">Open Platemate. Log today's session. That's the whole instruction.</div>
+      `
+    },
+    {
+      tag: 'Training',
+      title: 'Why Progressive Overload Is the Only Rule That Matters',
+      date: 'June 2026',
+      read: '5 min read',
+      body: `
+        <p>Strip away every training system ever written — every periodisation model, every coach's philosophy, every fitness influencer's program — and you'll find the same thing at the core: <strong>progressive overload</strong>. Make it harder over time. That's it. That's the whole game.</p>
+
+        <h2>What <span>Progressive Overload</span> Actually Means</h2>
+        <p>Most people think progressive overload just means adding weight to the bar. That's one way, but it's not the only way. Progressive overload is any form of increased demand on the body over time. Your muscles adapt to stress — and if the stress doesn't increase, neither do you.</p>
+
+        <div class="callout">Your body doesn't change because you worked hard once. It changes because you force it to keep adapting.</div>
+
+        <p>Here are the main ways to apply progressive overload:</p>
+        <ul>
+          <li><strong>Add weight</strong> — the most obvious and most effective when possible</li>
+          <li><strong>Add reps</strong> — same weight, more reps per set</li>
+          <li><strong>Add sets</strong> — same weight, same reps, more total volume</li>
+          <li><strong>Reduce rest time</strong> — same work in less time = more density</li>
+          <li><strong>Improve form</strong> — a cleaner rep under control creates more muscle tension</li>
+        </ul>
+
+        <h2>Why People <span>Stop Progressing</span></h2>
+        <p>The number one reason lifters plateau is that they stop adding demand. They find a comfortable weight, a comfortable rep range, and they just... repeat it. Week after week. Month after month. And then they wonder why nothing is changing.</p>
+        <p>Comfort is the enemy of progress. If last week's workout feels exactly the same as this week's, you're not overloading — you're maintaining. That's not a bad thing if that's your goal, but if you want to grow, something needs to change.</p>
+
+        <h2>How to <span>Apply It</span> Without Burning Out</h2>
+        <p>The mistake a lot of aggressive lifters make is trying to progress every single session. That's a fast road to burnout, injury, or both. Here's a more sustainable approach:</p>
+        <ul>
+          <li>Aim for progression every 1–2 weeks on major lifts</li>
+          <li>Use a training log — you can't overload what you can't measure</li>
+          <li>Set micro-goals: if you squatted 100kg for 3x8 last week, aim for 3x9 this week</li>
+          <li>Deload every 4–6 weeks to let your nervous system recover</li>
+          <li>Don't sacrifice form for numbers — a clean rep beats a sloppy one every time</li>
+        </ul>
+
+        <p>Progressive overload isn't glamorous. It doesn't have a brand deal. But it's the only principle in fitness that has never been disproved, in any study, ever. Everything else is decoration.</p>
+        <div class="callout">Track your lifts. Chase small wins. Trust the process. The gains will come.</div>
+      `
+    },
+    {
+      tag: 'Cardio',
+      title: 'Les Mills vs Traditional Cardio: What the Data Actually Shows',
+      date: 'June 2026',
+      read: '7 min read',
+      body: `
+        <p>Les Mills has a reputation. To some, it's group fitness for people who can't commit to real training. To others, it's the most consistent cardio they've ever done. So what does the science actually say — and does it matter which type of cardio you choose?</p>
+
+        <h2>The <span>Calorie Burn</span> Question</h2>
+        <p>Research on Les Mills programs like BodyPump, BODYCOMBAT, and HIIT 55 shows solid energy expenditure numbers — often comparable to or exceeding traditional steady-state cardio of similar duration. BODYCOMBAT, for instance, has been studied showing average heart rates in the 75–85% max range for the full class duration.</p>
+        <div class="callout">A 55-minute BODYCOMBAT class burns roughly the same calories as a 55-minute moderate-paced run — but many people find it significantly easier to complete consistently.</div>
+
+        <h2>The <span>Adherence Factor</span></h2>
+        <p>Here's the thing that the data almost always overlooks: the best cardio is the cardio you actually do. Adherence rates for group fitness classes are significantly higher than for solo cardio. People show up because there's music, a class time, an instructor, and social accountability.</p>
+        <ul>
+          <li>Structure reduces decision fatigue — you just show up</li>
+          <li>Social environment increases perceived effort tolerance</li>
+          <li>Fixed class times create routine</li>
+          <li>Instructor-led pacing reduces the temptation to go easy</li>
+        </ul>
+
+        <h2>Where <span>Traditional Cardio</span> Wins</h2>
+        <p>Running, cycling, and rowing still have real advantages. They're infinitely scalable, they can be done anywhere, and they allow for precise intensity control — important if you're training for a specific event or using heart rate zones for a structured plan.</p>
+        <p>For pure cardiovascular adaptation at the elite level, traditional endurance training has decades of research behind it. Zone 2 training in particular — long, slow, aerobic work — builds mitochondrial density in ways that short-burst group classes don't replicate as efficiently.</p>
+
+        <h2>The <span>Verdict</span></h2>
+        <p>They're not competing. Do the cardio that fits your life. If Les Mills keeps you showing up consistently, it's doing its job. If you'd rather lace up and run, do that. The enemy isn't group fitness or solo cardio — it's sitting on the couch arguing about which is better.</p>
+        <div class="callout">Track your cardio sessions in Platemate. Over time, the data will tell you what's actually working — not the internet.</div>
+      `
+    },
+    {
+      tag: 'Mindset',
+      title: 'How to Train When You Have Zero Motivation',
+      date: 'May 2026',
+      read: '4 min read',
+      body: `
+        <p>Nobody feels like training every day. If someone tells you they do, they're either lying or they haven't been at it long enough to hit a real rough patch. Motivation is an emotion — and emotions are unreliable. Discipline is a skill. Skills can be built.</p>
+
+        <h2>Stop <span>Waiting</span> to Feel Like It</h2>
+        <p>The biggest lie in fitness culture is the idea that you need to feel motivated to train. You don't. Motivation follows action — not the other way around. The moment you get moving, the resistance drops. But you have to move first.</p>
+        <div class="callout">You will never regret a workout you completed. You will almost always regret the one you skipped.</div>
+
+        <h2>The <span>Two-Minute Rule</span></h2>
+        <p>If you can't face the gym, make a deal with yourself: just put your shoes on and drive there. That's it. Just get there. Once you're there, you'll almost certainly train. The barrier isn't the workout — it's the starting. Lower the activation energy and the rest takes care of itself.</p>
+
+        <h2>Build <span>Systems</span>, Not Motivation</h2>
+        <ul>
+          <li>Schedule workouts like appointments — non-negotiable calendar blocks</li>
+          <li>Lay out your gym kit the night before</li>
+          <li>Train at the same time every day until it's automatic</li>
+          <li>Track your sessions — missing a logged streak feels worse than the workout</li>
+          <li>Find a training partner for accountability on low days</li>
+        </ul>
+
+        <h2>When Rest Is the <span>Right Answer</span></h2>
+        <p>Sometimes zero motivation is your body telling you something real. If you're sleeping badly, eating poorly, and running on empty, a rest day isn't weakness — it's recovery. The difference between a rest day and a skip day is intent. One is a decision. The other is avoidance.</p>
+        <p>Know the difference. Be honest with yourself. Then get back in the gym.</p>
+      `
+    },
+    {
+      tag: 'Recovery',
+      title: "The Lifter's Guide to Sleep: The Most Underrated Performance Tool",
+      date: 'May 2026',
+      read: '6 min read',
+      body: `
+        <p>You don't build muscle in the gym. You break it down there. The building happens during recovery — and the most powerful recovery tool available to you costs nothing and requires zero equipment. Sleep.</p>
+
+        <h2>What <span>Actually Happens</span> When You Sleep</h2>
+        <p>During deep sleep, your body releases the majority of its daily growth hormone. This is the hormone responsible for tissue repair, muscle protein synthesis, and fat metabolism. Cutting sleep short cuts this process short. You can eat perfectly, train perfectly, and still be leaving significant gains on the table if you're sleeping six hours a night.</p>
+        <div class="callout">Studies consistently show that athletes who sleep 8–10 hours outperform those who sleep 6 hours — in speed, reaction time, strength output, and injury rates.</div>
+
+        <h2>The <span>Numbers</span></h2>
+        <ul>
+          <li>7–9 hours is the target for most adults doing regular training</li>
+          <li>Athletes under heavy training loads benefit from 9–10 hours</li>
+          <li>Even one night of poor sleep measurably reduces next-day strength output</li>
+          <li>Chronic sleep debt accumulates — you can't fully pay it back in one night</li>
+        </ul>
+
+        <h2>How to <span>Actually Sleep Better</span></h2>
+        <p>Consistency matters more than any hack. Going to bed and waking at the same time every day — including weekends — is the single most effective thing you can do for sleep quality. Your circadian rhythm is a system, and systems respond to regularity.</p>
+        <ul>
+          <li>Keep a consistent sleep schedule, 7 days a week</li>
+          <li>No screens for 30–60 minutes before bed</li>
+          <li>Keep the room cold (65–68°F / 18–20°C is ideal)</li>
+          <li>Avoid caffeine after 2pm</li>
+          <li>No heavy training within 2 hours of sleep</li>
+        </ul>
+
+        <h2>Sleep and <span>Fat Loss</span></h2>
+        <p>Poor sleep raises cortisol and suppresses leptin — the hormone that tells you you're full. If you're dieting and not sleeping, you're fighting your own hormones every single day. Fix the sleep first. Everything else gets easier.</p>
+        <div class="callout">8 hours of sleep will do more for your physique than any supplement you've ever bought.</div>
+      `
+    },
+    {
+      tag: 'Nutrition',
+      title: 'Protein Math: How Much You Actually Need Per Day',
+      date: 'April 2026',
+      read: '5 min read',
+      body: `
+        <p>The classic bro answer is 1 gram of protein per pound of bodyweight. Clean, simple, easy to remember. It's also probably more than you need — and the reasoning behind it matters more than the number itself.</p>
+
+        <h2>What the <span>Research Says</span></h2>
+        <p>The most well-replicated research on protein for muscle building lands in the range of <strong>0.7–1g per pound of lean body mass</strong> (not total bodyweight). For most people, this means the popular 1g/lb recommendation is a comfortable overestimate — which isn't necessarily harmful, but it's worth knowing.</p>
+        <div class="callout">A 180lb person at 15% body fat has around 153lb of lean mass. Their protein target: 107–153g/day — not 180g.</div>
+
+        <h2>When <span>Higher Intake</span> Makes Sense</h2>
+        <ul>
+          <li>During a calorie deficit — more protein preserves lean mass while cutting</li>
+          <li>When training volume is very high — more breakdown means more need for repair</li>
+          <li>For older lifters — protein synthesis efficiency decreases with age</li>
+          <li>When overall calories are low — protein has a higher thermic effect</li>
+        </ul>
+
+        <h2>Spreading It <span>Across the Day</span></h2>
+        <p>Your body can only effectively use so much protein at once for muscle protein synthesis — roughly 30–50g per meal depending on the individual. Getting 200g of protein across 2 meals is less effective than spreading it across 4–5. Hit your number, but distribute it.</p>
+
+        <h2>The <span>Practical Target</span></h2>
+        <p>For most people doing serious resistance training, hitting 0.8g per pound of total bodyweight is a solid, evidence-based target. It's achievable, it's enough, and obsessing beyond that has diminishing returns. Get your protein. Lift heavy. Sleep well. The rest is noise.</p>
+        <div class="callout">Protein timing matters less than total daily intake. Hit your number first. Optimise distribution later.</div>
+      `
+    }
+  ];
+
+  let currentPostIndex = 0;
+
   function showPage(name) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     document.getElementById('page-' + name).classList.add('active');
     const navEl = document.getElementById('nav-' + name);
     if (navEl) navEl.classList.add('active');
+    if (name === 'blog') {
+      document.getElementById('nav-blog').classList.add('active');
+    }
     window.scrollTo(0, 0);
     return false;
+  }
+
+  function showPost(index) {
+    currentPostIndex = index;
+    const post = posts[index];
+    document.getElementById('post-tag').textContent = post.tag;
+    document.getElementById('post-title').textContent = post.title;
+    document.getElementById('post-date').textContent = post.date;
+    document.getElementById('post-read').textContent = post.read;
+    document.getElementById('post-body').innerHTML = post.body;
+    document.getElementById('post-prev').style.visibility = index === 0 ? 'hidden' : 'visible';
+    document.getElementById('post-next').style.visibility = index === posts.length - 1 ? 'hidden' : 'visible';
+    showPage('post');
+  }
+
+  function navigatePost(dir) {
+    const next = currentPostIndex + dir;
+    if (next >= 0 && next < posts.length) showPost(next);
   }
 </script>
 </body>
