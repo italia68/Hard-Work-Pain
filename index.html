@@ -3,7 +3,47 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Hard Work & Pain</title>
+
+<!-- ══ PRIMARY SEO ══ -->
+<title>Hard Work & Pain | Fitness Community & Workout Tracker</title>
+<meta name="description" content="Hard Work & Pain is a fitness community built for serious lifters. Track your workouts with Platemate, read no-BS training content, and embrace the grind." />
+<meta name="keywords" content="workout tracker, fitness community, weightlifting, progressive overload, Platemate, gym tracking, strength training" />
+<meta name="author" content="Hard Work & Pain" />
+<link rel="canonical" href="https://hardworkandpain.com/" />
+
+<!-- ══ OPEN GRAPH (Facebook, LinkedIn previews) ══ -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hardworkandpain.com/" />
+<meta property="og:title" content="Hard Work & Pain | Fitness Community & Workout Tracker" />
+<meta property="og:description" content="No shortcuts. No excuses. Track your lifts with Platemate and read honest fitness content built for people who show up." />
+<meta property="og:image" content="https://hardworkandpain.com/og-image.jpg" />
+<!-- Create a 1200x630px image of your logo on dark background and upload it as og-image.jpg -->
+
+<!-- ══ TWITTER / X CARD ══ -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hard Work & Pain | Fitness Community & Workout Tracker" />
+<meta name="twitter:description" content="No shortcuts. No excuses. Track your lifts with Platemate and read honest fitness content built for people who show up." />
+<meta name="twitter:image" content="https://hardworkandpain.com/og-image.jpg" />
+
+<!-- ══ FAVICON ══ -->
+<!-- Add these files to your repo root: favicon.ico, favicon-32x32.png, apple-touch-icon.png -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- ══ GOOGLE ANALYTICS ══ -->
+<!-- Replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+
+<!-- ══ FONTS ══ -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
@@ -1296,6 +1336,14 @@
 
   let currentPostIndex = 0;
 
+  const pageTitles = {
+    home: 'Hard Work & Pain | Fitness Community & Workout Tracker',
+    about: 'About | Hard Work & Pain',
+    blog: 'Blog | Hard Work & Pain',
+    platemate: 'Platemate | Hard Work & Pain',
+    contact: 'Contact | Hard Work & Pain',
+  };
+
   function showPage(name) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
@@ -1305,6 +1353,7 @@
     if (name === 'blog') {
       document.getElementById('nav-blog').classList.add('active');
     }
+    document.title = pageTitles[name] || pageTitles.home;
     window.scrollTo(0, 0);
     return false;
   }
@@ -1319,6 +1368,7 @@
     document.getElementById('post-body').innerHTML = post.body;
     document.getElementById('post-prev').style.visibility = index === 0 ? 'hidden' : 'visible';
     document.getElementById('post-next').style.visibility = index === posts.length - 1 ? 'hidden' : 'visible';
+    document.title = post.title + ' | Hard Work & Pain';
     showPage('post');
   }
 
