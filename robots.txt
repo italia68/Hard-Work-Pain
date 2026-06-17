@@ -1,8 +1,0 @@
-# robots.txt for hardworkandpain.com
-# Tells search engine crawlers what they can and can't access
-
-User-agent: *
-Allow: /
-
-# Point crawlers to your sitemap
-Sitemap: https://hardworkandpain.com/sitemap.xml
