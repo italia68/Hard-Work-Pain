@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ══ PRIMARY SEO ══ -->
+<title>Hard Work & Pain | Fitness Community & Workout Tracker</title>
+<meta name="description" content="Hard Work & Pain is a fitness community built for serious lifters. Track your workouts with Platemate, read no-BS training content, and embrace the grind." />
+<meta name="keywords" content="workout tracker, fitness community, weightlifting, progressive overload, Platemate, gym tracking, strength training" />
+<meta name="author" content="Hard Work & Pain" />
+<link rel="canonical" href="https://hardworkandpain.com/" />
+
+<!-- ══ OPEN GRAPH (Facebook, LinkedIn previews) ══ -->
+<meta property="og:site_name" content="Hard Work & Pain" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hardworkandpain.com/" />
+<meta property="og:title" content="Hard Work & Pain | Fitness Community & Workout Tracker" />
+<meta property="og:description" content="No shortcuts. No excuses. Track your lifts with Platemate and read honest fitness content built for people who show up." />
+<meta property="og:image" content="https://hardworkandpain.com/og-image.jpg" />
+<!-- Create a 1200x630px image of your logo on dark background and upload it as og-image.jpg -->
+
+<!-- ══ TWITTER / X CARD ══ -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Hard Work & Pain | Fitness Community & Workout Tracker" />
+<meta name="twitter:description" content="No shortcuts. No excuses. Track your lifts with Platemate and read honest fitness content built for people who show up." />
+<meta name="twitter:image" content="https://hardworkandpain.com/og-image.jpg" />
+
+<!-- ══ FAVICON ══ -->
+<!-- Add these files to your repo root: favicon.ico, favicon-32x32.png, apple-touch-icon.png -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- ══ GOOGLE ANALYTICS ══ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEKMG83C6G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TEKMG83C6G');
+</script>
+
+<!-- ══ FONTS ══ -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --gold: #FFB612;
+    --gold-dim: #cc9200;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --card: #161616;
+    --border: #2a2a2a;
+    --muted: #888;
+    --white: #f0f0f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--white); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    padding: 9px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--gold-dim); }
+
+  /* ── PAGES ── */
+  .page { display: none; padding-top: 64px; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── HOME ── */
+  .hero {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255,182,18,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 14vw, 160px);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .hero h1 .amp {
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(13px, 2vw, 16px);
+    color: var(--muted);
+    max-width: 480px;
+    margin: 28px auto 48px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-dim); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--border);
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .scroll-line {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .scroll-line::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* STATS */
+  .stats-bar {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
+
+  .stat-item {
+    padding: 40px 20px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* FEATURES */
+  .section {
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 48px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .feature-card {
+    background: var(--card);
+    padding: 40px 32px;
+    transition: background 0.2s;
+  }
+
+  .feature-card:hover { background: #1c1c1c; }
+
+  .feature-icon { font-size: 36px; margin-bottom: 20px; }
+
+  .feature-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .feature-desc { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+  /* QUOTE */
+  .quote-section {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .quote-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 60px);
+    letter-spacing: 2px;
+    color: var(--white);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    line-height: 1.1;
+  }
+
+  .quote-text span { color: var(--gold); }
+  .quote-attr { color: var(--muted); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* ── ABOUT ── */
+  .about-hero {
+    padding: 80px 40px 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 90px);
+    letter-spacing: 3px;
+    line-height: 0.95;
+    margin-bottom: 28px;
+  }
+
+  .about-hero h1 span { color: var(--gold); }
+
+  .about-body { color: var(--muted); font-size: 15px; line-height: 1.8; }
+  .about-body p { margin-bottom: 20px; }
+  .about-body strong { color: var(--white); font-weight: 600; }
+
+  .about-visual {
+    background: var(--card);
+    border: 1px solid var(--border);
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 40%, rgba(255,182,18,0.12) 0%, transparent 60%);
+  }
+
+  .about-visual-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    color: rgba(255,182,18,0.15);
+    letter-spacing: 4px;
+    text-align: center;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    margin: 0 40px;
+  }
+
+  .value-card {
+    background: var(--dark);
+    padding: 40px 28px;
+  }
+
+  .value-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .value-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .value-desc { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+  /* ── BLOG ── */
+  .blog-header {
+    padding: 80px 40px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .blog-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 80px);
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .blog-header h1 span { color: var(--gold); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    margin: 0 40px 80px;
+  }
+
+  .blog-card {
+    background: var(--card);
+    padding: 36px 28px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .blog-card:hover { background: #1c1c1c; }
+
+  .blog-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .blog-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    color: var(--white);
+  }
+
+  .blog-excerpt { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 24px; }
+
+  .blog-meta {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  /* ── PLATEMATE ── */
+  .app-hero {
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .app-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 9vw, 110px);
+    letter-spacing: 4px;
+    line-height: 0.95;
+    margin-bottom: 24px;
+  }
+
+  .app-hero h1 span { color: var(--gold); }
+  .app-hero p { color: var(--muted); font-size: 16px; max-width: 520px; margin: 0 auto 48px; line-height: 1.7; }
+
+  .app-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    margin: 0 40px;
+  }
+
+  .app-feature {
+    background: var(--card);
+    padding: 36px 28px;
+    text-align: left;
+  }
+
+  .app-feature-icon { font-size: 32px; margin-bottom: 16px; }
+
+  .app-feature-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .app-feature-desc { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+  .app-cta {
+    padding: 80px 40px;
+    text-align: center;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    margin-top: 2px;
+  }
+
+  .app-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .app-cta p { color: var(--muted); margin-bottom: 36px; }
+
+  /* ── CONTACT ── */
+  .contact-wrap {
+    padding: 80px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-wrap h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 80px);
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .contact-wrap h1 span { color: var(--gold); }
+  .contact-sub { color: var(--muted); margin-bottom: 48px; font-size: 15px; }
+
+  .form-group { margin-bottom: 24px; }
+
+  .form-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .form-input {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-input:focus { border-color: var(--gold); }
+
+  textarea.form-input { resize: vertical; min-height: 140px; }
+
+  .contact-links {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .contact-link-card {
+    background: var(--card);
+    padding: 28px 24px;
+  }
+
+  .contact-link-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .contact-link-value {
+    color: var(--gold);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+
+  .footer-logo span { color: var(--white); }
+  .footer-copy { color: var(--muted); font-size: 12px; }
+
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── BLOG POST ── */
+  .post-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 48px;
+    border: none;
+    background: none;
+    padding: 0;
+    transition: opacity 0.2s;
+  }
+
+  .post-back:hover { opacity: 0.7; }
+
+  .post-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .post-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7vw, 72px);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  .post-meta {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    margin-bottom: 52px;
+  }
+
+  .post-body {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .post-body h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin: 48px 0 16px;
+  }
+
+  .post-body h2 span { color: var(--gold); }
+
+  .post-body p { margin-bottom: 24px; }
+
+  .post-body strong { color: var(--white); font-weight: 600; }
+
+  .post-body .callout {
+    background: var(--card);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    margin: 32px 0;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  .post-body ul {
+    margin: 0 0 24px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .post-body ul li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+
+  .post-body ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  .post-nav {
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .post-nav-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .post-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .about-hero { grid-template-columns: 1fr; gap: 40px; }
+    .about-visual { display: none; }
+    .section { padding: 60px 20px; }
+    .blog-grid, .app-features, .features-grid, .values-grid, .contact-links { margin: 0 20px; }
+    .stats-bar { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat-item:last-child { border-bottom: none; }
+    footer { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
+    .blog-header, .contact-wrap, .app-hero, .post-wrap { padding: 60px 20px 40px; }
+    .app-cta { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">HARD WORK <span>&</span> PAIN</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a href="#" onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+    <li><a href="#" onclick="showPage('platemate')" id="nav-platemate">Platemate</a></li>
+    <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" onclick="showPage('platemate')">Get the App</a>
+</nav>
+
+<!-- ══ HOME ══ -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-eyebrow">No shortcuts. No excuses.</div>
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.72 456.12" style="width:clamp(260px,50vw,420px);margin-bottom:8px;">
+      <defs><style>.cls-1{fill:#fff;}.cls-2{fill:#fdb517;}</style></defs>
+      <g>
+        <rect class="cls-2" x="66.51" y="373.13" width="16.91" height="82.99" rx="2.07" ry="2.07"/>
+        <rect class="cls-2" x="48.05" y="373.13" width="16.91" height="82.99" rx="2.07" ry="2.07"/>
+        <rect class="cls-2" x="36.11" y="383.52" width="10.65" height="62.2" rx="2.07" ry="2.07"/>
+        <path class="cls-2" d="M28.12,409.13h0c0,.33-.33.58-.72.58H2.35c-2.55.01-2.34.28-2.34,1.55v6.74c0,1.27-.23,1.53,2.34,1.53h25.04c.41,0,.72.27.72.58h0c0,1.91.39,3.55.62,4.33.08.27.38.46.72.46h4.43c.41,0,.72-.27.72-.58v-19.38c0-.33-.33-.58-.72-.58h-4.43c-.35,0-.65.19-.72.46-.23.77-.62,2.42-.62,4.33l.02-.02Z"/>
+        <rect class="cls-2" x="343.3" y="372.69" width="16.91" height="82.99" rx="2.07" ry="2.07"/>
+        <rect class="cls-2" x="361.78" y="372.69" width="16.91" height="82.99" rx="2.07" ry="2.07"/>
+        <rect class="cls-2" x="379.98" y="383.09" width="10.65" height="62.2" rx="2.07" ry="2.07"/>
+        <path class="cls-2" d="M398.61,408.7h0c0,.33.33.58.72.58h25.04c2.57,0,2.34.27,2.34,1.53v6.74c0,1.27.23,1.53-2.34,1.53h-25.04c-.41,0-.72.27-.72.58h0c0,1.91-.39,3.55-.62,4.33-.08.27-.38.46-.72.46h-4.43c-.41,0-.72-.27-.72-.58v-19.38c0-.33.33-.58.72-.58h4.43c.35,0,.65.19.72.46.23.77.62,2.42.62,4.33h0Z"/>
+        <path class="cls-2" d="M327.34,409.72H99.16c-.02-2.21-.51-3.97-4.94-3.98h-9.21v17.77h9.21c4.25-.05,4.91-1.78,4.94-3.98h228.17c.03,2.21.68,3.94,4.94,3.98h9.21v-17.77h-9.21c-4.41.02-4.91,1.78-4.94,3.98h.01Z"/>
+      </g>
+      <g>
+        <path class="cls-1" d="M84.18,144.14l20.69-.08-11.86,117.33-26.89.03c-1.97-16.89-2.99-32.7-5.93-49.05l-5.5,49.13-28.3-.07-11.89-117.35h22.5s5.49,55.35,5.49,55.35c2.96-19.07,4-36.32,5.97-55.32l24.18-.09,5.73,54.77c3.23-19.06,3.73-35.65,5.81-54.66Z"/>
+        <polygon class="cls-1" points="324.74 405.59 301.96 405.59 285.88 344.35 285.42 405.59 264.16 405.59 264.17 288.1 291.19 288.04 303.26 334.1 303.72 288.04 324.73 288.02 324.74 405.59"/>
+        <path class="cls-1" d="M280.71,117.39l-23.71.1c-1.2-3.9-2.29-7.85-2.3-11.64l-.11-29.05c0-1.96-1.31-5.26-2.75-6.16-1.77-1.11-5.79-1.3-8.75-.9v47.72s-23.16,0-23.16,0l.06-117.42,32.21.26c8.11.07,16.36,3.18,20.87,9.91s4.54,15.34,4.61,23.5c.09,9.1-1.59,17.61-8.44,23.98,5.34,4.29,8.08,10.38,8.17,17.15l.4,30.9c.05,3.52,1.19,6.37,2.91,11.67ZM253.27,45.16c2.27-7.6,1.85-14.95-.04-21.95-2.42-2.03-7.65-2.19-10.21-1.1l.12,25.64c3.06.81,9.25.36,10.13-2.59Z"/>
+        <path class="cls-1" d="M240.71,261.38l-23.73.08c-1.34-4.22-2.31-8.4-2.32-12.64l-.07-28.02c0-1.97-1.29-5.27-2.74-6.14-1.95-1.17-5.68-1.32-8.77-.93v47.72s-23.23-.04-23.23-.04l.09-117.38,33.81.37c12.46.14,22.01,8.45,23.3,20.78,1.41,13.5,1.67,27.3-7.67,36.5,4.66,3.99,7.88,9.86,7.97,16.22l.44,31.82c.05,3.51,1.2,6.39,2.92,11.66ZM213.29,189.07c2.08-6.96,2.05-14.7.01-21.03-1.11-3.45-7.95-3.26-10.25-1.77l.09,25.48c3.11.79,9.21.46,10.15-2.68Z"/>
+        <polygon class="cls-1" points="140.07 117.36 116.86 117.46 116.96 66.77 103.57 66.77 103.58 117.43 80.56 117.42 80.55 .15 103.58 0 103.58 45.74 116.96 45.71 116.96 .04 140.05 .04 140.07 117.36"/>
+        <path class="cls-1" d="M346.99,92.32c-1.64,14.1-10.67,24.79-24.7,24.9l-33.73.26V.1s32.55.13,32.55.13c14.72.06,24.99,10.67,25.9,25.44v66.65ZM324,88.26V27.68c0-1.44-1.48-5.14-2.83-5.53-2.45-.71-6.75-.73-9.58-.4v73.99c3.05.51,7.86.57,10.14-.8,1.26-.76,2.28-4.58,2.28-6.68Z"/>
+        <path class="cls-1" d="M312.76,261.31l-24.09.23-13.21-44.17c-1.22,1.23-3.79,4.66-3.8,6.44l-.12,37.64h-22.99s0-117.29,0-117.29l22.94-.13.31,36.55,17.62-36.52,23.8.12-22.45,43.9,21.99,73.23Z"/>
+        <path class="cls-1" d="M169.21,236.92c-.53,17.46-14.11,26.36-29.61,26.19-15.07-.16-27.96-9.25-28.52-25.84-.77-22.91-.6-46.05-.07-69.28.2-9.05,5.47-17.82,13.06-21.65,9.85-4.98,21.49-5.03,31.47-.33,7.99,3.77,13.5,12.63,13.72,21.98.54,22.89.67,45.62-.04,68.92ZM146.57,234.94l-.03-64.83c0-3.52-3.71-6.25-6.41-6.25s-6.41,2.72-6.4,6.25v65.23c0,3.89,3.29,6.6,6.39,6.51,2.81-.08,6.45-2.73,6.44-6.91Z"/>
+        <path class="cls-2" d="M404.54,210.89l.24,33.88,1.08,8.88,1.81,7.4-21.08.35-3.06-5.15c-4.02,4.95-8.99,6.54-14.86,6.56-17.86.03-21.73-17.62-21.55-35.05.12-11.34,1.52-21.13,10.41-28.46-7.29-5.89-9.36-15.09-9.12-24.54.23-9.04,1.53-18.4,9-24.18,3.3-2.56,8.13-5.61,12.21-5.89,10.17-.7,18.83-.57,29.91-.32l.19,20.67-22.9.37c-2.77.04-6.13,1.12-6.04,4.47l.47,17.07c2.54,3.33,8.33,3.16,12.24,2.55l.19-12.1,20.78-.11.24,12.32,4.94.28v20.68s-5.1.32-5.1.32ZM383.56,234.22l.08-23.4c-3.98-.05-7.23,0-10.95,1.29-1.88.65-2.94,5.45-2.92,7.47l.21,18.2c.04,3.25,5.2,4.47,8.01,3.88,2.56-.54,5.56-3.55,5.57-7.43Z"/>
+        <path class="cls-1" d="M186.99,95.58l-15.27-.04-3.16,21.85-22.01.11L165.69.04l28.55.03,19.1,117.29-23.11.22-3.24-21.99ZM184.1,74.8l-4.96-31.47-4.68,31.62,9.63-.15Z"/>
+        <path class="cls-1" d="M196.78,383.58l-15.31-.06-3.02,22.07h-22.16l19.15-117.56,28.57.08,19.09,117.48h-23.05l-3.26-22.01ZM193.94,362.8l-4.84-31.62-4.84,31.78,9.68-.16Z"/>
+        <path class="cls-1" d="M158.29,336.59c-1.42,17.02-16.16,24.64-34.02,23.22l.03,45.78h-23.14v-117.54s31.97.19,31.97.19c13.41.08,23.49,9.4,25.32,22.67.3,8.58.56,17.07-.16,25.68ZM135.08,335c1.03-7.89.79-15.4.16-22.93-2.02-3.04-8.18-3.34-11.01-1.92l.05,28.04c2.52,1.23,10.24,1.13,10.8-3.19Z"/>
+        <rect class="cls-1" x="229.67" y="288.06" width="23.02" height="117.53"/>
+      </g>
+    </svg>
+    <p class="hero-sub">The fitness community built for people who show up even when they don't feel like it. Track your lifts. Own your progress. Embrace the grind.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" onclick="showPage('platemate')">Get Platemate Free</a>
+      <a class="btn-outline" onclick="showPage('blog')">Read the Blog</a>
+    </div>
+
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Effort Required</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Excuses Accepted</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Gains Possible</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">What we're about</div>
+    <div class="section-title">BUILT FOR<br>THE GRIND</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🏋️</div>
+        <div class="feature-title">Track Every Rep</div>
+        <div class="feature-desc">Log every set, weight, and rep with Platemate — the app built by a lifter, for lifters. No fluff, just data.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔥</div>
+        <div class="feature-title">Cardio That Counts</div>
+        <div class="feature-desc">From Les Mills classes to outdoor runs, track every cardio session and watch your endurance grow week by week.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <div class="feature-title">See Your Progress</div>
+        <div class="feature-desc">PRs, volume trends, workout history — your data tells the story of your hard work. Coming soon to Platemate.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💀</div>
+        <div class="feature-title">No Pain, No Gain</div>
+        <div class="feature-desc">Real content for real lifters. No watered-down tips, no clickbait. Just honest fitness knowledge that works.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-section">
+    <div class="quote-text">"The pain you feel today is the <span>strength</span> you feel tomorrow."</div>
+    <div class="quote-attr">— The Hard Work & Pain Philosophy</div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div>
+      <div class="section-eyebrow">Our story</div>
+      <h1>PAIN IS<br><span>PROGRESS</span></h1>
+      <div class="about-body">
+        <p>Hard Work & Pain was built by someone who knows what it's like to drag themselves to the gym after a long day, to push through the last rep when every muscle is screaming to stop — and to come back the next day and do it all over again.</p>
+        <p><strong>This isn't a platform for weekend warriors or fitness influencers.</strong> It's a space for people who are serious about the work. People who track their lifts, respect the process, and understand that real results take real time.</p>
+        <p>We built Platemate because every other tracking app felt like it was designed for someone else. Too complicated, too flashy, or too basic. Platemate is simple, fast, and built around how serious lifters actually train.</p>
+        <p>Hard Work & Pain is the community, the content, and the mindset behind the app. Welcome.</p>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-visual-text">HARD<br>WORK<br>&<br>PAIN</div>
+    </div>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <div class="value-title">Consistency</div>
+      <div class="value-desc">Show up. Every single day. Results are built on repetition, not motivation.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <div class="value-title">Honesty</div>
+      <div class="value-desc">No shortcuts. No gimmicks. We tell you what actually works, even when it's hard to hear.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <div class="value-title">Progression</div>
+      <div class="value-desc">Every session should move you forward. Track it, measure it, own it.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">04</div>
+      <div class="value-title">Community</div>
+      <div class="value-desc">We're all fighting different battles. Respect the grind, support the journey.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BLOG ══ -->
+<div class="page" id="page-blog">
+  <div class="blog-header">
+    <div class="section-eyebrow">Knowledge & Grind</div>
+    <h1>THE <span style="color:var(--gold)">BLOG</span></h1>
+  </div>
+
+  <div class="blog-grid">
+    <div class="blog-card" onclick="showPost(0)">
+      <div class="blog-tag">Tracking</div>
+      <div class="blog-title">Why You Should Be Logging Every Workout (And How to Start)</div>
+      <div class="blog-excerpt">Tracking your training is the single biggest differentiator between lifters who plateau and lifters who keep progressing. Here's the simplest way to start.</div>
+      <div class="blog-meta"><span>April 2026</span><span>4 min read</span></div>
+    </div>
+    <div class="blog-card" onclick="showPost(1)">
+      <div class="blog-tag">Training</div>
+      <div class="blog-title">Why Progressive Overload Is the Only Rule That Matters</div>
+      <div class="blog-excerpt">Every program, every methodology, every coach eventually comes back to one principle: make it harder over time. Here's how to apply it without burning out.</div>
+      <div class="blog-meta"><span>June 2026</span><span>5 min read</span></div>
+    </div>
+    <div class="blog-card" onclick="showPost(2)">
+      <div class="blog-tag">Cardio</div>
+      <div class="blog-title">Les Mills vs Traditional Cardio: What the Data Actually Shows</div>
+      <div class="blog-excerpt">Group fitness has a reputation. But strip away the hype and the science behind Les Mills classes is solid. We break it down set by set.</div>
+      <div class="blog-meta"><span>June 2026</span><span>7 min read</span></div>
+    </div>
+    <div class="blog-card" onclick="showPost(3)">
+      <div class="blog-tag">Mindset</div>
+      <div class="blog-title">How to Train When You Have Zero Motivation</div>
+      <div class="blog-excerpt">Motivation is unreliable. Discipline is a skill. Here's the framework that keeps serious lifters going when the feeling isn't there.</div>
+      <div class="blog-meta"><span>May 2026</span><span>4 min read</span></div>
+    </div>
+    <div class="blog-card" onclick="showPost(4)">
+      <div class="blog-tag">Recovery</div>
+      <div class="blog-title">The Lifter's Guide to Sleep: The Most Underrated Performance Tool</div>
+      <div class="blog-excerpt">You don't grow in the gym. You grow while you sleep. Most lifters are leaving gains on the table every single night.</div>
+      <div class="blog-meta"><span>May 2026</span><span>6 min read</span></div>
+    </div>
+    <div class="blog-card" onclick="showPost(5)">
+      <div class="blog-tag">Nutrition</div>
+      <div class="blog-title">Protein Math: How Much You Actually Need Per Day</div>
+      <div class="blog-excerpt">The bro-science answer is 1g per pound. The real answer is more nuanced — and knowing the difference can change your results.</div>
+      <div class="blog-meta"><span>April 2026</span><span>5 min read</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BLOG POST ══ -->
+<div class="page" id="page-post">
+  <div class="post-wrap">
+    <button class="post-back" onclick="showPage('blog')">← Back to Blog</button>
+    <div class="post-tag" id="post-tag"></div>
+    <h1 class="post-title" id="post-title"></h1>
+    <div class="post-meta">
+      <span id="post-date"></span>
+      <span id="post-read"></span>
+    </div>
+    <div class="post-body" id="post-body"></div>
+    <div class="post-nav">
+      <button class="post-nav-btn" id="post-prev" onclick="navigatePost(-1)">← Previous</button>
+      <button class="post-nav-btn" onclick="showPage('blog')">All Posts</button>
+      <button class="post-nav-btn" id="post-next" onclick="navigatePost(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PLATEMATE ══ -->
+<div class="page" id="page-platemate">
+  <div class="app-hero">
+    <div class="section-eyebrow">Your training companion</div>
+    <h1>MEET <span>PLATE</span>MATE</h1>
+    <p>The no-nonsense workout tracker built for people who take their training seriously. Log lifts, track cardio, and watch your progress build over time.</p>
+    <a class="btn-primary" href="https://italia68.github.io/Platemate/" target="_blank">Open Platemate Free →</a>
+  </div>
+
+  <div class="app-features">
+    <div class="app-feature">
+      <div class="app-feature-icon">🏋️</div>
+      <div class="app-feature-title">Exercise Tracking</div>
+      <div class="app-feature-desc">Log every exercise with sets, reps, and weight. Multi-set support for when your weight changes between sets.</div>
+    </div>
+    <div class="app-feature">
+      <div class="app-feature-icon">🏃</div>
+      <div class="app-feature-title">Cardio Logging</div>
+      <div class="app-feature-desc">Track running, cycling, Les Mills classes, and 20+ other cardio activities with time, distance, and calories.</div>
+    </div>
+    <div class="app-feature">
+      <div class="app-feature-icon">📅</div>
+      <div class="app-feature-title">Workout History</div>
+      <div class="app-feature-desc">See every session you've ever logged. Your history is stored in the cloud — never lose your data again.</div>
+    </div>
+    <div class="app-feature">
+      <div class="app-feature-icon">☁️</div>
+      <div class="app-feature-title">Cloud Sync</div>
+      <div class="app-feature-desc">Powered by Firebase. Your data follows you across devices and is backed up automatically.</div>
+    </div>
+    <div class="app-feature">
+      <div class="app-feature-icon">📊</div>
+      <div class="app-feature-title">Analytics (Coming Soon)</div>
+      <div class="app-feature-desc">PR tracking, volume trends, cardio progress charts, and muscle group breakdowns — all inside the app.</div>
+    </div>
+    <div class="app-feature">
+      <div class="app-feature-icon">📱</div>
+      <div class="app-feature-title">Works on Any Device</div>
+      <div class="app-feature-desc">A PWA built for mobile. Add it to your home screen and it works like a native app, no App Store needed.</div>
+    </div>
+  </div>
+
+  <div class="app-cta">
+    <h2>READY TO START <span style="color:var(--gold)">TRACKING?</span></h2>
+    <p>Free to use. No download required. Just open it and go.</p>
+    <a class="btn-primary" href="https://italia68.github.io/Platemate/" target="_blank">Launch Platemate →</a>
+  </div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div class="page" id="page-contact">
+  <div class="contact-wrap">
+    <div class="section-eyebrow">Get in touch</div>
+    <h1>LET'S <span style="color:var(--gold)">TALK</span></h1>
+    <p class="contact-sub">Questions about Platemate, collab ideas, or just want to talk training? Send a message.</p>
+
+    <div class="form-group">
+      <label class="form-label">Your Name</label>
+      <input class="form-input" type="text" placeholder="First and last name" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input class="form-input" type="email" placeholder="your@email.com" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Subject</label>
+      <input class="form-input" type="text" placeholder="What's this about?" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Message</label>
+      <textarea class="form-input" placeholder="Tell us what's on your mind..."></textarea>
+    </div>
+    <button class="btn-primary" style="width:100%;font-size:14px;padding:16px">Send Message</button>
+
+    <div class="contact-links">
+      <div class="contact-link-card">
+        <div class="contact-link-label">App</div>
+        <div class="contact-link-value">Platemate PWA</div>
+      </div>
+      <div class="contact-link-card">
+        <div class="contact-link-label">Based In</div>
+        <div class="contact-link-value">Chicago, IL</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">HARD WORK <span>&</span> PAIN</div>
+  <div class="footer-copy">© 2026 Hard Work & Pain. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('blog')">Blog</a>
+    <a href="#" onclick="showPage('platemate')">Platemate</a>
+    <a href="#" onclick="showPage('contact')">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const posts = [
+    {
+      tag: 'Tracking',
+      title: 'Why You Should Be Logging Every Workout (And How to Start)',
+      date: 'April 2026',
+      read: '4 min read',
+      body: `
+        <p>There's a clear line between lifters who keep progressing year after year and lifters who look the same as they did two years ago. Most of the time, it comes down to one habit: the ones who progress are tracking their training. The ones who aren't, aren't.</p>
+
+        <h2>You <span>Can't Manage</span> What You Don't Measure</h2>
+        <p>Without a log, you're relying on memory. And memory is terrible at this. You might remember roughly what you lifted last week, but do you know exactly how many reps you got on your third set of Romanian deadlifts six weeks ago? No. And that means you can't intelligently progress from it.</p>
+        <div class="callout">A training log is the difference between guessing and actually knowing. Only one of those leads to consistent progress.</div>
+
+        <h2>What to <span>Track</span></h2>
+        <ul>
+          <li>Exercise name</li>
+          <li>Weight used (every set)</li>
+          <li>Reps completed (every set)</li>
+          <li>Rest time (optional but useful for intensity tracking)</li>
+          <li>Notes — how it felt, any form issues, energy level</li>
+        </ul>
+
+        <h2>How to <span>Start</span></h2>
+        <p>Don't overthink the format. A notes app works. A notebook works. But the best option is a dedicated tool that makes logging fast, searchable, and visible over time. That's exactly what Platemate is built for.</p>
+        <p>The first week of logging feels like extra work. By week three, it feels like the only way to train. Your past sessions become a roadmap — you can see exactly where you were, where you are, and where you're going.</p>
+
+        <h2>The <span>Compound Effect</span></h2>
+        <p>A training log is a form of accountability that compounds. Every session you log adds to a record that makes skipping harder and progressing clearer. Six months of data tells you more about your body than any program you could buy.</p>
+        <div class="callout">Open Platemate. Log today's session. That's the whole instruction.</div>
+      `
+    },
+    {
+      tag: 'Training',
+      title: 'Why Progressive Overload Is the Only Rule That Matters',
+      date: 'June 2026',
+      read: '5 min read',
+      body: `
+        <p>Strip away every training system ever written — every periodisation model, every coach's philosophy, every fitness influencer's program — and you'll find the same thing at the core: <strong>progressive overload</strong>. Make it harder over time. That's it. That's the whole game.</p>
+
+        <h2>What <span>Progressive Overload</span> Actually Means</h2>
+        <p>Most people think progressive overload just means adding weight to the bar. That's one way, but it's not the only way. Progressive overload is any form of increased demand on the body over time. Your muscles adapt to stress — and if the stress doesn't increase, neither do you.</p>
+
+        <div class="callout">Your body doesn't change because you worked hard once. It changes because you force it to keep adapting.</div>
+
+        <p>Here are the main ways to apply progressive overload:</p>
+        <ul>
+          <li><strong>Add weight</strong> — the most obvious and most effective when possible</li>
+          <li><strong>Add reps</strong> — same weight, more reps per set</li>
+          <li><strong>Add sets</strong> — same weight, same reps, more total volume</li>
+          <li><strong>Reduce rest time</strong> — same work in less time = more density</li>
+          <li><strong>Improve form</strong> — a cleaner rep under control creates more muscle tension</li>
+        </ul>
+
+        <h2>Why People <span>Stop Progressing</span></h2>
+        <p>The number one reason lifters plateau is that they stop adding demand. They find a comfortable weight, a comfortable rep range, and they just... repeat it. Week after week. Month after month. And then they wonder why nothing is changing.</p>
+        <p>Comfort is the enemy of progress. If last week's workout feels exactly the same as this week's, you're not overloading — you're maintaining. That's not a bad thing if that's your goal, but if you want to grow, something needs to change.</p>
+
+        <h2>How to <span>Apply It</span> Without Burning Out</h2>
+        <p>The mistake a lot of aggressive lifters make is trying to progress every single session. That's a fast road to burnout, injury, or both. Here's a more sustainable approach:</p>
+        <ul>
+          <li>Aim for progression every 1–2 weeks on major lifts</li>
+          <li>Use a training log — you can't overload what you can't measure</li>
+          <li>Set micro-goals: if you squatted 100kg for 3x8 last week, aim for 3x9 this week</li>
+          <li>Deload every 4–6 weeks to let your nervous system recover</li>
+          <li>Don't sacrifice form for numbers — a clean rep beats a sloppy one every time</li>
+        </ul>
+
+        <p>Progressive overload isn't glamorous. It doesn't have a brand deal. But it's the only principle in fitness that has never been disproved, in any study, ever. Everything else is decoration.</p>
+        <div class="callout">Track your lifts. Chase small wins. Trust the process. The gains will come.</div>
+      `
+    },
+    {
+      tag: 'Cardio',
+      title: 'Les Mills vs Traditional Cardio: What the Data Actually Shows',
+      date: 'June 2026',
+      read: '7 min read',
+      body: `
+        <p>Les Mills has a reputation. To some, it's group fitness for people who can't commit to real training. To others, it's the most consistent cardio they've ever done. So what does the science actually say — and does it matter which type of cardio you choose?</p>
+
+        <h2>The <span>Calorie Burn</span> Question</h2>
+        <p>Research on Les Mills programs like BodyPump, BODYCOMBAT, and HIIT 55 shows solid energy expenditure numbers — often comparable to or exceeding traditional steady-state cardio of similar duration. BODYCOMBAT, for instance, has been studied showing average heart rates in the 75–85% max range for the full class duration.</p>
+        <div class="callout">A 55-minute BODYCOMBAT class burns roughly the same calories as a 55-minute moderate-paced run — but many people find it significantly easier to complete consistently.</div>
+
+        <h2>The <span>Adherence Factor</span></h2>
+        <p>Here's the thing that the data almost always overlooks: the best cardio is the cardio you actually do. Adherence rates for group fitness classes are significantly higher than for solo cardio. People show up because there's music, a class time, an instructor, and social accountability.</p>
+        <ul>
+          <li>Structure reduces decision fatigue — you just show up</li>
+          <li>Social environment increases perceived effort tolerance</li>
+          <li>Fixed class times create routine</li>
+          <li>Instructor-led pacing reduces the temptation to go easy</li>
+        </ul>
+
+        <h2>Where <span>Traditional Cardio</span> Wins</h2>
+        <p>Running, cycling, and rowing still have real advantages. They're infinitely scalable, they can be done anywhere, and they allow for precise intensity control — important if you're training for a specific event or using heart rate zones for a structured plan.</p>
+        <p>For pure cardiovascular adaptation at the elite level, traditional endurance training has decades of research behind it. Zone 2 training in particular — long, slow, aerobic work — builds mitochondrial density in ways that short-burst group classes don't replicate as efficiently.</p>
+
+        <h2>The <span>Verdict</span></h2>
+        <p>They're not competing. Do the cardio that fits your life. If Les Mills keeps you showing up consistently, it's doing its job. If you'd rather lace up and run, do that. The enemy isn't group fitness or solo cardio — it's sitting on the couch arguing about which is better.</p>
+        <div class="callout">Track your cardio sessions in Platemate. Over time, the data will tell you what's actually working — not the internet.</div>
+      `
+    },
+    {
+      tag: 'Mindset',
+      title: 'How to Train When You Have Zero Motivation',
+      date: 'May 2026',
+      read: '4 min read',
+      body: `
+        <p>Nobody feels like training every day. If someone tells you they do, they're either lying or they haven't been at it long enough to hit a real rough patch. Motivation is an emotion — and emotions are unreliable. Discipline is a skill. Skills can be built.</p>
+
+        <h2>Stop <span>Waiting</span> to Feel Like It</h2>
+        <p>The biggest lie in fitness culture is the idea that you need to feel motivated to train. You don't. Motivation follows action — not the other way around. The moment you get moving, the resistance drops. But you have to move first.</p>
+        <div class="callout">You will never regret a workout you completed. You will almost always regret the one you skipped.</div>
+
+        <h2>The <span>Two-Minute Rule</span></h2>
+        <p>If you can't face the gym, make a deal with yourself: just put your shoes on and drive there. That's it. Just get there. Once you're there, you'll almost certainly train. The barrier isn't the workout — it's the starting. Lower the activation energy and the rest takes care of itself.</p>
+
+        <h2>Build <span>Systems</span>, Not Motivation</h2>
+        <ul>
+          <li>Schedule workouts like appointments — non-negotiable calendar blocks</li>
+          <li>Lay out your gym kit the night before</li>
+          <li>Train at the same time every day until it's automatic</li>
+          <li>Track your sessions — missing a logged streak feels worse than the workout</li>
+          <li>Find a training partner for accountability on low days</li>
+        </ul>
+
+        <h2>When Rest Is the <span>Right Answer</span></h2>
+        <p>Sometimes zero motivation is your body telling you something real. If you're sleeping badly, eating poorly, and running on empty, a rest day isn't weakness — it's recovery. The difference between a rest day and a skip day is intent. One is a decision. The other is avoidance.</p>
+        <p>Know the difference. Be honest with yourself. Then get back in the gym.</p>
+      `
+    },
+    {
+      tag: 'Recovery',
+      title: "The Lifter's Guide to Sleep: The Most Underrated Performance Tool",
+      date: 'May 2026',
+      read: '6 min read',
+      body: `
+        <p>You don't build muscle in the gym. You break it down there. The building happens during recovery — and the most powerful recovery tool available to you costs nothing and requires zero equipment. Sleep.</p>
+
+        <h2>What <span>Actually Happens</span> When You Sleep</h2>
+        <p>During deep sleep, your body releases the majority of its daily growth hormone. This is the hormone responsible for tissue repair, muscle protein synthesis, and fat metabolism. Cutting sleep short cuts this process short. You can eat perfectly, train perfectly, and still be leaving significant gains on the table if you're sleeping six hours a night.</p>
+        <div class="callout">Studies consistently show that athletes who sleep 8–10 hours outperform those who sleep 6 hours — in speed, reaction time, strength output, and injury rates.</div>
+
+        <h2>The <span>Numbers</span></h2>
+        <ul>
+          <li>7–9 hours is the target for most adults doing regular training</li>
+          <li>Athletes under heavy training loads benefit from 9–10 hours</li>
+          <li>Even one night of poor sleep measurably reduces next-day strength output</li>
+          <li>Chronic sleep debt accumulates — you can't fully pay it back in one night</li>
+        </ul>
+
+        <h2>How to <span>Actually Sleep Better</span></h2>
+        <p>Consistency matters more than any hack. Going to bed and waking at the same time every day — including weekends — is the single most effective thing you can do for sleep quality. Your circadian rhythm is a system, and systems respond to regularity.</p>
+        <ul>
+          <li>Keep a consistent sleep schedule, 7 days a week</li>
+          <li>No screens for 30–60 minutes before bed</li>
+          <li>Keep the room cold (65–68°F / 18–20°C is ideal)</li>
+          <li>Avoid caffeine after 2pm</li>
+          <li>No heavy training within 2 hours of sleep</li>
+        </ul>
+
+        <h2>Sleep and <span>Fat Loss</span></h2>
+        <p>Poor sleep raises cortisol and suppresses leptin — the hormone that tells you you're full. If you're dieting and not sleeping, you're fighting your own hormones every single day. Fix the sleep first. Everything else gets easier.</p>
+        <div class="callout">8 hours of sleep will do more for your physique than any supplement you've ever bought.</div>
+      `
+    },
+    {
+      tag: 'Nutrition',
+      title: 'Protein Math: How Much You Actually Need Per Day',
+      date: 'April 2026',
+      read: '5 min read',
+      body: `
+        <p>The classic bro answer is 1 gram of protein per pound of bodyweight. Clean, simple, easy to remember. It's also probably more than you need — and the reasoning behind it matters more than the number itself.</p>
+
+        <h2>What the <span>Research Says</span></h2>
+        <p>The most well-replicated research on protein for muscle building lands in the range of <strong>0.7–1g per pound of lean body mass</strong> (not total bodyweight). For most people, this means the popular 1g/lb recommendation is a comfortable overestimate — which isn't necessarily harmful, but it's worth knowing.</p>
+        <div class="callout">A 180lb person at 15% body fat has around 153lb of lean mass. Their protein target: 107–153g/day — not 180g.</div>
+
+        <h2>When <span>Higher Intake</span> Makes Sense</h2>
+        <ul>
+          <li>During a calorie deficit — more protein preserves lean mass while cutting</li>
+          <li>When training volume is very high — more breakdown means more need for repair</li>
+          <li>For older lifters — protein synthesis efficiency decreases with age</li>
+          <li>When overall calories are low — protein has a higher thermic effect</li>
+        </ul>
+
+        <h2>Spreading It <span>Across the Day</span></h2>
+        <p>Your body can only effectively use so much protein at once for muscle protein synthesis — roughly 30–50g per meal depending on the individual. Getting 200g of protein across 2 meals is less effective than spreading it across 4–5. Hit your number, but distribute it.</p>
+
+        <h2>The <span>Practical Target</span></h2>
+        <p>For most people doing serious resistance training, hitting 0.8g per pound of total bodyweight is a solid, evidence-based target. It's achievable, it's enough, and obsessing beyond that has diminishing returns. Get your protein. Lift heavy. Sleep well. The rest is noise.</p>
+        <div class="callout">Protein timing matters less than total daily intake. Hit your number first. Optimise distribution later.</div>
+      `
+    }
+  ];
+
+  let currentPostIndex = 0;
+
+  const pageTitles = {
+    home: 'Hard Work & Pain | Fitness Community & Workout Tracker',
+    about: 'About | Hard Work & Pain',
+    blog: 'Blog | Hard Work & Pain',
+    platemate: 'Platemate | Hard Work & Pain',
+    contact: 'Contact | Hard Work & Pain',
+  };
+
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    const navEl = document.getElementById('nav-' + name);
+    if (navEl) navEl.classList.add('active');
+    if (name === 'blog') {
+      document.getElementById('nav-blog').classList.add('active');
+    }
+    document.title = pageTitles[name] || pageTitles.home;
+    window.scrollTo(0, 0);
+    return false;
+  }
+
+  function showPost(index) {
+    currentPostIndex = index;
+    const post = posts[index];
+    document.getElementById('post-tag').textContent = post.tag;
+    document.getElementById('post-title').textContent = post.title;
+    document.getElementById('post-date').textContent = post.date;
+    document.getElementById('post-read').textContent = post.read;
+    document.getElementById('post-body').innerHTML = post.body;
+    document.getElementById('post-prev').style.visibility = index === 0 ? 'hidden' : 'visible';
+    document.getElementById('post-next').style.visibility = index === posts.length - 1 ? 'hidden' : 'visible';
+    document.title = post.title + ' | Hard Work & Pain';
+    showPage('post');
+  }
+
+  function navigatePost(dir) {
+    const next = currentPostIndex + dir;
+    if (next >= 0 && next < posts.length) showPost(next);
+  }
+</script>
+</body>
+</html>
