@@ -1,1 +1,352 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Platemate — How to Install & Use | Hard Work & Pain</title>
+<meta name="description" content="How to install Platemate on iPhone, Android, or desktop. Free workout tracker — no App Store needed. Add to home screen in seconds." />
+<link rel="canonical" href="https://hardworkandpain.com/platemate" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --gold: #FFB612;
+    --gold-dim: #cc9200;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --card: #161616;
+    --border: #2a2a2a;
+    --muted: #888;
+    --white: #f0f0f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 64px;
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-cta {
+    background: var(--gold); color: #000; border: none; padding: 9px 20px;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    cursor: pointer; text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-dim); }
+
+  /* HERO */
+  .hero {
+    padding: 140px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255,182,18,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 10vw, 96px);
+    letter-spacing: 3px; line-height: 1; margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p { font-size: 18px; color: var(--muted); max-width: 520px; margin: 0 auto 40px; line-height: 1.7; }
+  .cta-btn {
+    display: inline-block; background: var(--gold); color: #000;
+    padding: 16px 40px; font-size: 15px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .cta-btn:hover { background: var(--gold-dim); }
+
+  /* SECTIONS */
+  .section { padding: 80px 20px; max-width: 860px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 6vw, 56px);
+    letter-spacing: 2px; margin-bottom: 12px;
+  }
+  .section-title span { color: var(--gold); }
+  .section-sub { color: var(--muted); font-size: 15px; margin-bottom: 48px; max-width: 560px; }
+
+  /* INSTALL CARDS */
+  .install-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); margin-bottom: 24px; }
+  @media (max-width: 600px) { .install-grid { grid-template-columns: 1fr; } }
+  .install-card { background: var(--card); padding: 32px 28px; }
+  .install-platform {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  }
+  .install-steps { display: flex; flex-direction: column; gap: 14px; }
+  .install-step { display: flex; align-items: flex-start; gap: 14px; }
+  .step-num {
+    background: var(--gold); color: #000; font-size: 11px; font-weight: 700;
+    border-radius: 50%; width: 22px; height: 22px; display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-text { font-size: 14px; color: #ccc; line-height: 1.6; }
+  .step-text strong { color: var(--white); }
+
+  /* NOTE */
+  .note {
+    background: var(--card); border-left: 3px solid var(--gold);
+    padding: 18px 22px; font-size: 14px; color: var(--muted); line-height: 1.7;
+    margin-top: 8px;
+  }
+  .note strong { color: var(--white); }
+
+  /* HOW TO USE */
+  .steps-list { display: flex; flex-direction: column; gap: 2px; background: var(--border); }
+  .step-row { background: var(--card); padding: 28px 32px; display: flex; gap: 24px; align-items: flex-start; }
+  .big-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold);
+    line-height: 1; flex-shrink: 0; width: 48px;
+  }
+  .step-content h3 { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .step-content p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .step-content p strong { color: var(--white); }
+
+  /* FAQ */
+  .faq-list { display: flex; flex-direction: column; gap: 2px; background: var(--border); }
+  .faq-item { background: var(--card); padding: 24px 28px; }
+  .faq-q { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .faq-a strong { color: var(--white); }
+  .faq-a a { color: var(--gold); text-decoration: none; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--dark); border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 20px; text-align: center;
+  }
+  .cta-band h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7vw, 72px);
+    letter-spacing: 3px; margin-bottom: 16px;
+  }
+  .cta-band h2 span { color: var(--gold); }
+  .cta-band p { color: var(--muted); font-size: 15px; margin-bottom: 36px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); border-top: 1px solid var(--border);
+    padding: 40px; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--gold); letter-spacing: 2px; }
+  .footer-logo span { color: var(--white); }
+  .footer-copy { color: var(--muted); font-size: 12px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 20px; }
+    .step-row { flex-direction: column; gap: 8px; }
+    .big-num { font-size: 36px; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://hardworkandpain.com" class="nav-logo">Hard Work <span>&amp; Pain</span></a>
+  <a href="https://italia68.github.io/Platemate/" class="nav-cta" target="_blank">Open App</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Free Workout Tracker</div>
+  <h1>Meet <span>Platemate</span></h1>
+  <p>Set-by-set logging, a barbell plate calculator, templates, and full training history. Free, no App Store required, works on any device.</p>
+  <a href="https://italia68.github.io/Platemate/" class="cta-btn" target="_blank">Open Platemate →</a>
+</section>
+
+<hr class="divider" />
+
+<!-- INSTALL SECTION -->
+<section class="section">
+  <div class="eyebrow">Step Zero</div>
+  <h2 class="section-title">Install on <span>Any Device</span></h2>
+  <p class="section-sub">Platemate is a Progressive Web App (PWA). That means it works like a native app — no download needed — and you can add it to your home screen for instant access.</p>
+
+  <div class="install-grid">
+    <!-- iPhone -->
+    <div class="install-card">
+      <div class="install-platform">🍎 iPhone &amp; iPad — Safari</div>
+      <div class="install-steps">
+        <div class="install-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Open <strong>italia68.github.io/Platemate</strong> in <strong>Safari</strong> (must be Safari, not Chrome)</div>
+        </div>
+        <div class="install-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Tap the <strong>Share button</strong> — the box with an arrow pointing up (↑) at the bottom of the screen</div>
+        </div>
+        <div class="install-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Scroll down in the menu and tap <strong>"Add to Home Screen"</strong></div>
+        </div>
+        <div class="install-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Tap <strong>Add</strong> in the top right — Platemate appears on your home screen like any app</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Android -->
+    <div class="install-card">
+      <div class="install-platform">🤖 Android — Chrome</div>
+      <div class="install-steps">
+        <div class="install-step">
+          <div class="step-num">1</div>
+          <div class="step-text">Open <strong>italia68.github.io/Platemate</strong> in <strong>Chrome</strong></div>
+        </div>
+        <div class="install-step">
+          <div class="step-num">2</div>
+          <div class="step-text">Tap the <strong>⋮ three-dot menu</strong> in the top right corner</div>
+        </div>
+        <div class="install-step">
+          <div class="step-num">3</div>
+          <div class="step-text">Tap <strong>"Add to Home Screen"</strong> or <strong>"Install App"</strong> — both do the same thing</div>
+        </div>
+        <div class="install-step">
+          <div class="step-num">4</div>
+          <div class="step-text">Tap <strong>Add</strong> — Platemate installs to your home screen instantly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Using it on desktop?</strong> No install needed — just open the link in any browser and bookmark it. Chrome and Edge will also offer an "Install" option in the address bar for a desktop shortcut.
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- HOW TO USE -->
+<section class="section">
+  <div class="eyebrow">Getting Started</div>
+  <h2 class="section-title">How to <span>Log a Workout</span></h2>
+  <p class="section-sub">Your first session takes about two minutes to set up. Here's what to do when you open the app.</p>
+
+  <div class="steps-list">
+    <div class="step-row">
+      <div class="big-num">1</div>
+      <div class="step-content">
+        <h3>Create a free account</h3>
+        <p>Sign up with your email — no payment info, no App Store. Your workouts sync to the cloud so you never lose your history if you switch phones.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="big-num">2</div>
+      <div class="step-content">
+        <h3>Tap + to add your first exercise</h3>
+        <p>Hit the <strong>+ button</strong> on the Today tab. Search for an exercise by name, or browse by muscle group. Can't find yours? Create a custom exercise in seconds.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="big-num">3</div>
+      <div class="step-content">
+        <h3>Pick your equipment type</h3>
+        <p>Choose <strong>Barbell</strong> (with plate visualizer), <strong>Dumbbell</strong>, <strong>Machine</strong>, or <strong>Other</strong>. The barbell view lets you tap plates on and off to calculate total weight — no math needed.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="big-num">4</div>
+      <div class="step-content">
+        <h3>Log weight and reps per set</h3>
+        <p>Enter reps for <strong>each individual set</strong> — not just a total. This is the key difference from most trackers. Your data stays honest: if set 3 dropped from 8 to 5 reps, that's recorded.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="big-num">5</div>
+      <div class="step-content">
+        <h3>Check History and Stats</h3>
+        <p>The <strong>History tab</strong> shows every past session by date. The <strong>Stats tab</strong> tracks your PRs automatically and shows a <strong>training heatmap</strong> so you can see consistency at a glance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- FAQ -->
+<section class="section">
+  <div class="eyebrow">Common Questions</div>
+  <h2 class="section-title">Quick <span>Answers</span></h2>
+  <p class="section-sub">The questions we get most often.</p>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Does this work on iPhone?</div>
+      <div class="faq-a">Yes — open the link in <strong>Safari</strong> on any iPhone or iPad, then add it to your home screen using the Share button. It works just like a native app.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does this work on Android?</div>
+      <div class="faq-a">Yes — open the link in <strong>Chrome</strong> on Android, tap the three-dot menu, and tap "Add to Home Screen." Done.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is it actually free?</div>
+      <div class="faq-a">Yes. Completely free to use. No subscription, no payment info, no trial period.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will my data be saved if I change phones?</div>
+      <div class="faq-a">Yes. Your workouts are saved to your account in the cloud — not just on your device. Sign in on any device and your full history is there.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I track cardio too?</div>
+      <div class="faq-a">Yes. Tap + on the Today tab and choose Cardio Session. Log duration, distance, and calories alongside your lifting — all in one place.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if my exercise isn't in the list?</div>
+      <div class="faq-a">Create a custom exercise. In the exercise search screen, scroll to the bottom and tap <strong>"Create Custom Exercise."</strong> Name it, pick a muscle group, done.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Something isn't working — how do I get help?</div>
+      <div class="faq-a">Reach out via the <a href="https://hardworkandpain.com/#contact">contact page</a>. We'll get back to you.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>No <span>Excuses.</span><br>Start Logging.</h2>
+  <p>Free. No App Store. Works on every device.</p>
+  <a href="https://italia68.github.io/Platemate/" class="cta-btn" target="_blank">Open Platemate →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Hard Work <span>&amp; Pain</span></div>
+  <div class="footer-copy">© 2026 Hard Work & Pain. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="https://hardworkandpain.com">Home</a>
+    <a href="https://hardworkandpain.com/#blog">Blog</a>
+    <a href="https://hardworkandpain.com/#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
