@@ -11,6 +11,28 @@
 <meta name="author" content="Hard Work & Pain" />
 <link rel="canonical" href="https://hardworkandpain.com/" />
 
+<!-- ══ STRUCTURED DATA (helps Google connect "Hard Work And Pain" to this site) ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hard Work & Pain",
+  "alternateName": ["Hard Work And Pain", "HardWorkAndPain"],
+  "url": "https://hardworkandpain.com/",
+  "logo": "https://hardworkandpain.com/og-image.jpg",
+  "description": "Hard Work & Pain is a fitness community and workout tracking app (Platemate) built for serious lifters."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Hard Work & Pain",
+  "alternateName": "Hard Work And Pain",
+  "url": "https://hardworkandpain.com/"
+}
+</script>
+
 <!-- ══ OPEN GRAPH (Facebook, LinkedIn previews) ══ -->
 <meta property="og:site_name" content="Hard Work & Pain" />
 <meta property="og:type" content="website" />
@@ -159,6 +181,19 @@
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 20px;
+  }
+
+  /* Visually hidden but readable by search engines & screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .hero h1 {
@@ -845,7 +880,9 @@
 <div class="page active" id="page-home">
   <section class="hero">
     <div class="hero-eyebrow">No shortcuts. No excuses.</div>
-    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.72 456.12" style="width:clamp(260px,50vw,420px);margin-bottom:8px;">
+    <h1 class="sr-only">Hard Work &amp; Pain | Fitness Community &amp; Workout Tracker</h1>
+    <svg id="Layer_1" data-name="Layer 1" role="img" aria-labelledby="hwp-logo-title" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.72 456.12" style="width:clamp(260px,50vw,420px);margin-bottom:8px;">
+      <title id="hwp-logo-title">Hard Work &amp; Pain logo</title>
       <defs><style>.cls-1{fill:#fff;}.cls-2{fill:#fdb517;}</style></defs>
       <g>
         <rect class="cls-2" x="66.51" y="373.13" width="16.91" height="82.99" rx="2.07" ry="2.07"/>
