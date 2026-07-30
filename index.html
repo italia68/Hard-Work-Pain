@@ -310,16 +310,20 @@
   }
 
   .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2px;
-    background: var(--border);
+    background: transparent;
   }
 
   .feature-card {
     background: var(--card);
+    border: 1px solid var(--border);
     padding: 40px 32px;
     transition: background 0.2s;
+    flex: 1 1 320px;
+    max-width: 366px;
   }
 
   .feature-card:hover { background: #1c1c1c; }
@@ -335,6 +339,46 @@
   }
 
   .feature-desc { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+  /* ── NEW FEATURE HIGHLIGHT ── */
+  .feature-card.is-new,
+  .app-feature.is-new {
+    border-color: var(--gold) !important;
+    box-shadow: inset 0 0 0 1px var(--gold), 0 0 24px rgba(255,182,18,0.15);
+    position: relative;
+  }
+
+  /* ── ANNOUNCEMENT BANNER ── */
+  .announce-bar {
+    background: var(--gold);
+    color: #000;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .announce-bar:hover { background: var(--gold-dim); }
+  .announce-bar .announce-tag {
+    background: #000;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 10px;
+  }
+  .announce-bar .announce-arrow { font-weight: 700; }
+  @media (max-width: 600px) {
+    .announce-bar { font-size: 12px; padding: 10px 16px; }
+  }
 
   /* QUOTE */
   .quote-section {
@@ -544,16 +588,20 @@
   }
 
   .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2px;
-    background: var(--border);
+    background: transparent;
     margin: 0 40px;
   }
 
   .value-card {
     background: var(--dark);
+    border: 1px solid var(--border);
     padding: 40px 28px;
+    flex: 1 1 220px;
+    max-width: 280px;
   }
 
   .value-num {
@@ -591,16 +639,20 @@
   .blog-header h1 span { color: var(--gold); }
 
   .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2px;
-    background: var(--border);
+    background: transparent;
     margin: 0 40px 80px;
   }
 
   .blog-card {
     background: var(--card);
+    border: 1px solid var(--border);
     padding: 36px 28px;
+    flex: 1 1 340px;
+    max-width: 400px;
     cursor: pointer;
     transition: background 0.2s;
     position: relative;
@@ -658,18 +710,21 @@
   .app-hero p { color: var(--muted); font-size: 16px; max-width: 520px; margin: 0 auto 48px; line-height: 1.7; }
 
   .app-features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2px;
-    background: var(--border);
+    background: transparent;
     margin: 0 40px;
-    overflow: hidden;
   }
 
   .app-feature {
     background: var(--card);
+    border: 1px solid var(--border);
     padding: 36px 28px;
     text-align: left;
+    flex: 1 1 320px;
+    max-width: 366px;
   }
 
   .app-feature-icon { font-size: 32px; margin-bottom: 16px; }
@@ -700,6 +755,115 @@
   }
 
   .app-cta p { color: var(--muted); margin-bottom: 36px; }
+
+  /* ── UPDATES / CHANGELOG ── */
+  .updates-header {
+    padding: 80px 40px 48px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .updates-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 80px);
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+  .updates-header h1 span { color: var(--gold); }
+  .updates-header p { color: var(--muted); margin-top: 16px; font-size: 15px; max-width: 560px; }
+
+  .timeline {
+    max-width: 800px;
+    margin: 0 auto 100px;
+    padding: 0 40px;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-entry {
+    position: relative;
+    padding: 0 0 56px 56px;
+  }
+  .timeline-entry:last-child { padding-bottom: 0; }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--black);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .timeline-entry.is-latest::before {
+    box-shadow: 0 0 0 2px var(--gold), 0 0 14px rgba(255,182,18,0.6);
+  }
+  .timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .timeline-version {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 2px 14px;
+    border-radius: 20px;
+  }
+  .timeline-date {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .timeline-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .timeline-list li {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+  }
+  .timeline-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+  @media (max-width: 600px) {
+    .timeline { padding: 0 20px; }
+    .timeline::before { left: 20px; }
+    .timeline-entry { padding-left: 40px; }
+    .timeline-entry::before { left: -24px; }
+    .updates-header { padding: 60px 20px 40px; }
+  }
 
   /* ── CONTACT ── */
   .contact-wrap {
@@ -754,11 +918,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2px;
-    background: var(--border);
+    background: transparent;
   }
 
   .contact-link-card {
     background: var(--card);
+    border: 1px solid var(--border);
     padding: 28px 24px;
   }
 
@@ -967,6 +1132,7 @@
     <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
     <li><a href="#" onclick="showPage('blog')" id="nav-blog">Blog</a></li>
     <li><a href="#" onclick="showPage('platemate')" id="nav-platemate">Platemate</a></li>
+    <li><a href="#" onclick="showPage('updates')" id="nav-updates">Updates</a></li>
     <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
   </ul>
   <a class="nav-cta" onclick="showPage('platemate')">Get the App</a>
@@ -974,6 +1140,11 @@
 
 <!-- ══ HOME ══ -->
 <div class="page active" id="page-home">
+  <div class="announce-bar" onclick="showPage('platemate')">
+    <span class="announce-tag">New</span>
+    <span>Nutrition Tracking is here — log calories, protein, carbs &amp; fat with USDA-backed food search</span>
+    <span class="announce-arrow">→</span>
+  </div>
   <section class="hero">
     <div class="hero-eyebrow">No shortcuts. No excuses.</div>
     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.72 456.12" style="width:clamp(260px,50vw,420px);margin-bottom:8px;">
@@ -1047,7 +1218,7 @@
         <div class="feature-title">See Your Progress</div>
         <div class="feature-desc">PRs, volume trends, workout history — your data tells the story of your hard work.</div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card is-new">
         <div class="feature-icon">🥗</div>
         <div class="feature-title">Fuel the Grind <span style="font-size:10px;font-weight:700;color:#000;background:var(--gold);padding:2px 7px;border-radius:10px;letter-spacing:0.5px;vertical-align:middle;margin-left:4px">NEW</span></div>
         <div class="feature-desc">Log calories, protein, carbs &amp; fat with a food search backed by the USDA database. Set daily goals and watch the bars fill.</div>
@@ -1187,6 +1358,10 @@
 
 <!-- ══ PLATEMATE ══ -->
 <div class="page" id="page-platemate">
+  <div class="announce-bar" style="cursor:default">
+    <span class="announce-tag">New</span>
+    <span>Nutrition Tracking is here — log calories, protein, carbs &amp; fat with USDA-backed food search</span>
+  </div>
   <div class="app-hero">
     <div class="section-eyebrow">Your training companion</div>
     <h1>MEET <span>PLATE</span>MATE</h1>
@@ -1224,7 +1399,7 @@
       <div class="app-feature-title">Workout Templates</div>
       <div class="app-feature-desc">Save your go-to routines and load them into any day with one tap. Share templates with the community or browse what others have built.</div>
     </div>
-    <div class="app-feature">
+    <div class="app-feature is-new">
       <div class="app-feature-icon">🥗</div>
       <div class="app-feature-title">Nutrition Tracking <span style="font-size:10px;font-weight:700;color:#000;background:var(--gold);padding:2px 7px;border-radius:10px;letter-spacing:0.5px;vertical-align:middle;margin-left:4px">NEW</span></div>
       <div class="app-feature-desc">Log calories, protein, carbs, and fat. Search foods across a built-in library, the USDA database, and Open Food Facts, then set daily goals and track progress.</div>
@@ -1244,6 +1419,110 @@
       <div class="app-feature-title">Works on Any Device</div>
       <div class="app-feature-desc">A PWA built for mobile. Add it to your home screen and it works like a native app, no App Store needed.</div>
     </div>
+  </div>
+</div>
+
+<!-- ══ UPDATES ══ -->
+<div class="page" id="page-updates">
+  <div class="updates-header">
+    <h1>THE <span>GRIND</span> LOG</h1>
+    <p>Every update to Platemate, from the very first commit to today. No spin, no marketing fluff — just what actually shipped and when.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-entry is-latest">
+      <div class="timeline-meta">
+        <span class="timeline-version">v1.3</span>
+        <span class="timeline-date">July 29, 2026</span>
+      </div>
+      <div class="timeline-title">Nutrition Tracking Arrives</div>
+      <ul class="timeline-list">
+        <li>New Food tab — log calories, protein, carbs &amp; fat for every day</li>
+        <li>Food search across a built-in common-foods library, the USDA FoodData Central database, and Open Food Facts for packaged items</li>
+        <li>Set daily calorie &amp; macro goals and watch progress bars fill in</li>
+        <li>Log food straight from the main + button on Today, alongside lifts and cardio</li>
+        <li>Fixed a bug where per-set weights weren't actually saving when editing a logged exercise</li>
+      </ul>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">v1.2</span>
+        <span class="timeline-date">July 28, 2026</span>
+      </div>
+      <div class="timeline-title">Shared Templates, Reimagined</div>
+      <ul class="timeline-list">
+        <li>Renamed Community → Shared Templates</li>
+        <li>Search and muscle-group filters when browsing Shared Templates</li>
+        <li>Like templates you find useful</li>
+        <li>Add Cardio activities directly inside a template, not just strength exercises</li>
+        <li>Fixed weight not saving correctly when editing exercises inside a template</li>
+        <li>Templates now show who created them</li>
+        <li>Cleaner spacing and layout on template cards</li>
+      </ul>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">—</span>
+        <span class="timeline-date">Mid-Late July 2026</span>
+      </div>
+      <div class="timeline-title">Growth, SEO &amp; an Admin Dashboard</div>
+      <ul class="timeline-list">
+        <li>Converted the blog to real static pages — each post got its own crawlable URL, title, and meta description</li>
+        <li>Added a repeatable build script so new blog posts take one command instead of hand-built pages</li>
+        <li>Added Organization, WebSite, and FAQ structured data to help the site actually surface in search</li>
+        <li>Built an admin dashboard: total users, workout/cardio/template counts, a searchable user table</li>
+        <li>User profiles now track signup date and last login</li>
+        <li>Fixed a silent Firestore security rule bug that was affecting Shared Templates</li>
+      </ul>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">—</span>
+        <span class="timeline-date">Late June 2026</span>
+      </div>
+      <div class="timeline-title">Hard Work &amp; Pain Launches</div>
+      <ul class="timeline-list">
+        <li>Built this website — Home, About, Blog, Platemate, and Contact — to give Platemate a real home</li>
+        <li>Migrated Platemate from Netlify to GitHub Pages for reliable, free hosting</li>
+        <li>Unified History — lifting and cardio sessions now show together in one chronological timeline</li>
+        <li>Replaced the old PRs tab with a full Analytics dashboard: streaks, volume trends, a 30-day heatmap, and auto-tracked personal records</li>
+      </ul>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">v1.0 – v1.1</span>
+        <span class="timeline-date">Mid-June 2026</span>
+      </div>
+      <div class="timeline-title">The Big Rebuild</div>
+      <ul class="timeline-list">
+        <li>Rebuilt logging around a real set-by-set system — every set gets its own weight and reps, not just one number per exercise</li>
+        <li>Full-screen exercise picker with muscle-group filters, replacing a plain text field</li>
+        <li>Visual dumbbell and barbell plate-loading calculators</li>
+        <li>Templates arrive — save a routine once, reuse it forever, with early community sharing</li>
+        <li>Added every Les Mills class and 20+ other cardio activities</li>
+        <li>Versioned "what's new" splash screen so updates don't go unnoticed</li>
+        <li>Forgot-password flow and toast notifications replacing plain browser alerts</li>
+      </ul>
+    </div>
+
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">v0.1</span>
+        <span class="timeline-date">June 2026</span>
+      </div>
+      <div class="timeline-title">Day One</div>
+      <ul class="timeline-list">
+        <li>Platemate is born — a simple exercise and cardio logger, no fluff, built to solve one problem: losing track of your lifts</li>
+        <li>Firebase Auth and Firestore added so data is never tied to a single browser again</li>
+        <li>Multi-set support for machine exercises where weight changes set to set</li>
+      </ul>
+    </div>
+
   </div>
 </div>
 
@@ -1293,6 +1572,7 @@
     <a href="#" onclick="showPage('home')">Home</a>
     <a href="#" onclick="showPage('blog')">Blog</a>
     <a href="#" onclick="showPage('platemate')">Platemate</a>
+    <a href="#" onclick="showPage('updates')">Updates</a>
     <a href="#" onclick="showPage('contact')">Contact</a>
   </div>
 </footer>
@@ -1500,6 +1780,7 @@
     about: 'About | Hard Work & Pain',
     blog: 'Blog | Hard Work & Pain',
     platemate: 'Platemate | Hard Work & Pain',
+    updates: 'Updates | Hard Work & Pain',
     contact: 'Contact | Hard Work & Pain',
   };
 
