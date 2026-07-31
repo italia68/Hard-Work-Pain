@@ -319,6 +319,9 @@ def build_sitemap(posts, urls):
     entries = [
         (f"{SITE_URL}/", today, "weekly", "1.0"),
         (f"{SITE_URL}/platemate/", today, "monthly", "0.9"),
+        (f"{SITE_URL}/about/", today, "monthly", "0.6"),
+        (f"{SITE_URL}/contact/", today, "monthly", "0.5"),
+        (f"{SITE_URL}/updates/", today, "weekly", "0.7"),
     ]
     for url in urls:
         entries.append((url, today, "monthly", "0.8"))
