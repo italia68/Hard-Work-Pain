@@ -1536,21 +1536,22 @@
 
     <div class="form-group">
       <label class="form-label">Your Name</label>
-      <input class="form-input" type="text" placeholder="First and last name" />
+      <input class="form-input" type="text" id="contactName" placeholder="First and last name" />
     </div>
     <div class="form-group">
       <label class="form-label">Email</label>
-      <input class="form-input" type="email" placeholder="your@email.com" />
+      <input class="form-input" type="email" id="contactEmail" placeholder="your@email.com" />
     </div>
     <div class="form-group">
       <label class="form-label">Subject</label>
-      <input class="form-input" type="text" placeholder="What's this about?" />
+      <input class="form-input" type="text" id="contactSubject" placeholder="What's this about?" />
     </div>
     <div class="form-group">
       <label class="form-label">Message</label>
-      <textarea class="form-input" placeholder="Tell us what's on your mind..."></textarea>
+      <textarea class="form-input" id="contactMessage" placeholder="Tell us what's on your mind..."></textarea>
     </div>
-    <button class="btn-primary" style="width:100%;font-size:14px;padding:16px">Send Message</button>
+    <button class="btn-primary" id="contactSubmitBtn" style="width:100%;font-size:14px;padding:16px" onclick="submitContactForm()">Send Message</button>
+    <div id="contactStatus" style="margin-top:16px;font-size:14px;display:none"></div>
 
     <div class="contact-links">
       <div class="contact-link-card">
@@ -1816,6 +1817,56 @@
   function navigatePost(dir) {
     const next = currentPostIndex + dir;
     if (next >= 0 && next < posts.length) showPost(next);
+  }
+
+  function submitContactForm() {
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const subject = document.getElementById('contactSubject').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+    const statusEl = document.getElementById('contactStatus');
+    const btn = document.getElementById('contactSubmitBtn');
+
+    if (!name || !email || !message) {
+      statusEl.style.display = 'block';
+      statusEl.style.color = '#e05555';
+      statusEl.textContent = 'Please fill in your name, email, and a message.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    statusEl.style.display = 'none';
+
+    fetch('https://formsubmit.co/ajax/hardworkandpain@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        _subject: subject || 'New message from hardworkandpain.com',
+        message: message
+      })
+    })
+      .then(res => res.json())
+      .then(() => {
+        statusEl.style.display = 'block';
+        statusEl.style.color = 'var(--gold)';
+        statusEl.textContent = "Message sent — we'll get back to you soon.";
+        document.getElementById('contactName').value = '';
+        document.getElementById('contactEmail').value = '';
+        document.getElementById('contactSubject').value = '';
+        document.getElementById('contactMessage').value = '';
+      })
+      .catch(() => {
+        statusEl.style.display = 'block';
+        statusEl.style.color = '#e05555';
+        statusEl.textContent = 'Something went wrong sending your message — please try again or email hardworkandpain@gmail.com directly.';
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+      });
   }
 </script>
 </body>
