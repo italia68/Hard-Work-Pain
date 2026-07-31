@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ══ PRIMARY SEO ══ -->
+<title>Updates | Hard Work & Pain</title>
+<meta name="description" content="Every update to Platemate, from day one to today — new features, fixes, and what's changed." />
+<meta name="keywords" content="Hard Work And Pain, Platemate, workout tracker, fitness community" />
+<meta name="author" content="Hard Work & Pain" />
+<link rel="canonical" href="https://hardworkandpain.com/updates/" />
+
+<!-- ══ OPEN GRAPH ══ -->
+<meta property="og:site_name" content="Hard Work & Pain" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hardworkandpain.com/updates/" />
+<meta property="og:title" content="Updates | Hard Work & Pain" />
+<meta property="og:description" content="Every update to Platemate, from day one to today — new features, fixes, and what's changed." />
+<meta property="og:image" content="https://hardworkandpain.com/og-image.jpg" />
+
+<!-- ══ TWITTER / X CARD ══ -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Updates | Hard Work & Pain" />
+<meta name="twitter:description" content="Every update to Platemate, from day one to today — new features, fixes, and what's changed." />
+<meta name="twitter:image" content="https://hardworkandpain.com/og-image.jpg" />
+
+<!-- ══ STRUCTURED DATA ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Updates | Hard Work & Pain",
+  "description": "Every update to Platemate, from day one to today — new features, fixes, and what's changed.",
+  "url": "https://hardworkandpain.com/updates/",
+  "isPartOf": { "@type": "WebSite", "name": "Hard Work & Pain", "url": "https://hardworkandpain.com/" }
+}
+</script>
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- ══ GOOGLE ANALYTICS ══ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEKMG83C6G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TEKMG83C6G');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --gold: #FFB612;
+    --gold-dim: #cc9200;
+    --black: #0a0a0a;
+    --dark: #111111;
+    --card: #161616;
+    --border: #2a2a2a;
+    --muted: #888;
+    --white: #f0f0f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 64px;
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: #000; border: none; padding: 9px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--gold-dim); }
+
+  main { padding-top: 64px; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  /* ── ABOUT PAGE ── */
+  .about-page-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 4px solid var(--gold);
+  }
+  .about-page-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/about-hero.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .about-page-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.4) 100%);
+  }
+  .about-page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 80px 40px;
+  }
+  .about-page-hero-content h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 9vw, 110px);
+    letter-spacing: 3px;
+    line-height: 0.9;
+    color: var(--white);
+    text-shadow: 4px 4px 0px var(--black);
+    margin-bottom: 0;
+  }
+  .about-page-hero-content h1 span { color: var(--gold); }
+  .about-page-hero-content p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin-top: 24px;
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+  }
+
+  .the-standard { background-color: var(--card); padding: 100px 40px; }
+  .the-standard-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .the-standard h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); color: var(--gold); letter-spacing: 2px; }
+  .the-standard-desc { color: var(--muted); margin-top: 16px; max-width: 480px; }
+  .standard-values-list { list-style: none; display: flex; flex-direction: column; gap: 20px; margin-top: 40px; padding: 0; }
+  .standard-values-list li { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px; color: var(--muted); display: flex; align-items: center; gap: 16px; }
+  .standard-values-list li::before { content: ''; display: block; width: 20px; height: 4px; background-color: var(--gold); flex-shrink: 0; }
+  .standard-image-wrapper { position: relative; height: 500px; width: 100%; }
+  .standard-image-wrapper img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.2); position: relative; z-index: 1; display: block; }
+  .standard-image-wrapper::after { content: ''; position: absolute; top: 16px; left: 16px; width: 100%; height: 100%; border: 2px solid var(--gold); z-index: 0; }
+
+  .values-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; background: transparent; margin: 60px 40px 0; }
+  .value-card { background: var(--dark); border: 1px solid var(--border); padding: 40px 28px; flex: 1 1 220px; max-width: 280px; }
+  .value-num { font-family: 'Bebas Neue', sans-serif; font-size: 48px; color: var(--gold); opacity: 0.4; line-height: 1; margin-bottom: 12px; }
+  .value-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; margin-bottom: 10px; }
+  .value-desc { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+  /* ── CONTACT PAGE ── */
+  .contact-wrap { padding: 80px 40px; max-width: 700px; margin: 0 auto; }
+  .contact-wrap h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 80px); letter-spacing: 3px; line-height: 1; margin-bottom: 12px; }
+  .contact-wrap h1 span { color: var(--gold); }
+  .contact-sub { color: var(--muted); margin-bottom: 48px; font-size: 15px; }
+  .form-group { margin-bottom: 24px; }
+  .form-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .form-input { width: 100%; background: var(--card); border: 1px solid var(--border); color: var(--white); padding: 14px 16px; font-size: 15px; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+  .form-input:focus { border-color: var(--gold); }
+  textarea.form-input { resize: vertical; min-height: 140px; }
+  .btn-primary { background: var(--gold); color: #000; border: none; padding: 14px 32px; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-dim); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.6; cursor: default; }
+  .contact-links { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: transparent; }
+  .contact-link-card { background: var(--card); border: 1px solid var(--border); padding: 28px 24px; }
+  .contact-link-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .contact-link-value { color: var(--gold); font-size: 15px; font-weight: 500; }
+
+  /* ── UPDATES PAGE ── */
+  .updates-header { padding: 80px 40px 48px; max-width: 800px; margin: 0 auto; }
+  .updates-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 80px); letter-spacing: 3px; line-height: 1; }
+  .updates-header h1 span { color: var(--gold); }
+  .updates-header p { color: var(--muted); margin-top: 16px; font-size: 15px; max-width: 560px; }
+  .timeline { max-width: 800px; margin: 0 auto 100px; padding: 0 40px; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 40px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+  .timeline-entry { position: relative; padding: 0 0 56px 56px; }
+  .timeline-entry:last-child { padding-bottom: 0; }
+  .timeline-entry::before { content: ''; position: absolute; left: -4px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); border: 3px solid var(--black); box-shadow: 0 0 0 2px var(--gold); }
+  .timeline-entry.is-latest::before { box-shadow: 0 0 0 2px var(--gold), 0 0 14px rgba(255,182,18,0.6); }
+  .timeline-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .timeline-version { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--gold); background: var(--card); border: 1px solid var(--border); padding: 2px 14px; border-radius: 20px; }
+  .timeline-date { font-size: 11px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+  .timeline-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; }
+  .timeline-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .timeline-list li { color: var(--muted); font-size: 14px; line-height: 1.6; padding-left: 20px; position: relative; }
+  .timeline-list li::before { content: '\2192'; position: absolute; left: 0; color: var(--gold); }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--gold); letter-spacing: 2px; }
+  .footer-logo span { color: var(--white); }
+  .footer-copy { color: var(--muted); font-size: 12px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .the-standard-grid { grid-template-columns: 1fr; }
+    .standard-image-wrapper { height: 320px; }
+    .contact-wrap, .updates-header { padding: 60px 20px 40px; }
+    .values-grid { margin: 40px 20px 0; }
+    footer { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://hardworkandpain.com/" class="nav-logo">HARD WORK <span>&amp; PAIN</span></a>
+  <ul class="nav-links">
+    <li><a href="https://hardworkandpain.com/">Home</a></li>
+    <li><a href="https://hardworkandpain.com/about/">About</a></li>
+    <li><a href="https://hardworkandpain.com/#blog">Blog</a></li>
+    <li><a href="https://hardworkandpain.com/platemate/">Platemate</a></li>
+    <li><a href="https://hardworkandpain.com/updates/">Updates</a></li>
+    <li><a href="https://hardworkandpain.com/contact/">Contact</a></li>
+  </ul>
+  <a href="https://hardworkandpain.com/platemate/" class="nav-cta">Get the App</a>
+</nav>
+
+<main>
+
+  <div class="updates-header">
+    <h1>THE <span>GRIND</span> LOG</h1>
+    <p>Every update to Platemate, from the very first commit to today. No spin, no marketing fluff — just what actually shipped and when.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-entry is-latest">
+      <div class="timeline-meta">
+        <span class="timeline-version">v1.3</span>
+        <span class="timeline-date">July 29, 2026</span>
+      </div>
+      <div class="timeline-title">Nutrition Tracking Arrives</div>
+      <ul class="timeline-list">
+        <li>New Food tab — log calories, protein, carbs &amp; fat for every day</li>
+        <li>Food search across a built-in common-foods library, the USDA FoodData Central database, and Open Food Facts for packaged items</li>
+        <li>Set daily calorie &amp; macro goals and watch progress bars fill in</li>
+        <li>Log food straight from the main + button on Today, alongside lifts and cardio</li>
+        <li>Fixed a bug where per-set weights weren't actually saving when editing a logged exercise</li>
+      </ul>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">v1.2</span>
+        <span class="timeline-date">July 28, 2026</span>
+      </div>
+      <div class="timeline-title">Shared Templates, Reimagined</div>
+      <ul class="timeline-list">
+        <li>Renamed Community &#8594; Shared Templates</li>
+        <li>Search and muscle-group filters when browsing Shared Templates</li>
+        <li>Like templates you find useful</li>
+        <li>Add Cardio activities directly inside a template, not just strength exercises</li>
+        <li>Fixed weight not saving correctly when editing exercises inside a template</li>
+        <li>Templates now show who created them</li>
+        <li>Cleaner spacing and layout on template cards</li>
+      </ul>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">—</span>
+        <span class="timeline-date">Mid-Late July 2026</span>
+      </div>
+      <div class="timeline-title">Growth, SEO &amp; an Admin Dashboard</div>
+      <ul class="timeline-list">
+        <li>Converted the blog to real static pages — each post got its own crawlable URL, title, and meta description</li>
+        <li>Added a repeatable build script so new blog posts take one command instead of hand-built pages</li>
+        <li>Added Organization, WebSite, and FAQ structured data to help the site actually surface in search</li>
+        <li>Built an admin dashboard: total users, workout/cardio/template counts, a searchable user table</li>
+        <li>User profiles now track signup date and last login</li>
+        <li>Fixed a silent Firestore security rule bug that was affecting Shared Templates</li>
+      </ul>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">—</span>
+        <span class="timeline-date">Late June 2026</span>
+      </div>
+      <div class="timeline-title">Hard Work &amp; Pain Launches</div>
+      <ul class="timeline-list">
+        <li>Built this website — Home, About, Blog, Platemate, and Contact — to give Platemate a real home</li>
+        <li>Migrated Platemate from Netlify to GitHub Pages for reliable, free hosting</li>
+        <li>Unified History — lifting and cardio sessions now show together in one chronological timeline</li>
+        <li>Replaced the old PRs tab with a full Analytics dashboard: streaks, volume trends, a 30-day heatmap, and auto-tracked personal records</li>
+      </ul>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">v1.0 – v1.1</span>
+        <span class="timeline-date">Mid-June 2026</span>
+      </div>
+      <div class="timeline-title">The Big Rebuild</div>
+      <ul class="timeline-list">
+        <li>Rebuilt logging around a real set-by-set system — every set gets its own weight and reps, not just one number per exercise</li>
+        <li>Full-screen exercise picker with muscle-group filters, replacing a plain text field</li>
+        <li>Visual dumbbell and barbell plate-loading calculators</li>
+        <li>Templates arrive — save a routine once, reuse it forever, with early community sharing</li>
+        <li>Added every Les Mills class and 20+ other cardio activities</li>
+        <li>Versioned \u201cwhat's new\u201d splash screen so updates don't go unnoticed</li>
+        <li>Forgot-password flow and toast notifications replacing plain browser alerts</li>
+      </ul>
+    </div>
+    <div class="timeline-entry">
+      <div class="timeline-meta">
+        <span class="timeline-version">v0.1</span>
+        <span class="timeline-date">June 2026</span>
+      </div>
+      <div class="timeline-title">Day One</div>
+      <ul class="timeline-list">
+        <li>Platemate is born — a simple exercise and cardio logger, no fluff, built to solve one problem: losing track of your lifts</li>
+        <li>Firebase Auth and Firestore added so data is never tied to a single browser again</li>
+        <li>Multi-set support for machine exercises where weight changes set to set</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">HARD WORK <span>&amp; PAIN</span></div>
+  <div class="footer-copy">© 2026 Hard Work & Pain. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="https://hardworkandpain.com/">Home</a>
+    <a href="https://hardworkandpain.com/about/">About</a>
+    <a href="https://hardworkandpain.com/#blog">Blog</a>
+    <a href="https://hardworkandpain.com/platemate/">Platemate</a>
+    <a href="https://hardworkandpain.com/updates/">Updates</a>
+    <a href="https://hardworkandpain.com/contact/">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
