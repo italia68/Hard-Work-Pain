@@ -126,7 +126,7 @@ CONTACT_BODY = """
       </div>
       <div class="contact-link-card">
         <div class="contact-link-label">Based In</div>
-        <div class="contact-link-value">Chicago, IL</div>
+        <div class="contact-link-value">HWP</div>
       </div>
     </div>
   </div>
