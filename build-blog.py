@@ -347,7 +347,7 @@ def build_blog_cards_html(posts):
     for i, post in enumerate(posts):
         url = f"{SITE_URL}/blog/{post['slug']}/"
         cards.append(
-            f'    <a class="blog-card" href="{url}" onclick="showPost({i}); return false;">\n'
+            f'    <a class="blog-card" href="{url}">\n'
             f'      <div class="blog-tag">{post["tag"]}</div>\n'
             f'      <div class="blog-title">{post["title"]}</div>\n'
             f'      <div class="blog-excerpt">{post["excerpt"]}</div>\n'
