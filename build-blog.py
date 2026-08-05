@@ -7,9 +7,9 @@ Reads blog-posts.json (one entry per post) and regenerates, from scratch,
 every time you run it:
   1. blog/<slug>/index.html   — a real, standalone, crawlable page per post
   2. sitemap.xml              — updated with every post's URL
-  3. index.html               — the blog card grid AND the in-app `posts`
-                                 JS array are replaced (everything else in
-                                 index.html is left untouched)
+  3. index.html               — just the homepage blog card grid is
+                                 refreshed (everything else in index.html
+                                 is left untouched)
 
 HOW TO ADD A NEW POST
   1. Open blog-posts.json
@@ -92,11 +92,6 @@ def json_escape(s):
     return s.replace('\\', '\\\\').replace('"', '\\"')
 
 
-def js_template_escape(s):
-    # Escape characters that would break a JS template literal
-    return s.replace('\\', '\\\\').replace('`', '\\`').replace('${', '\\${')
-
-
 POST_PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,6 +147,8 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   gtag('config', 'G-TEKMG83C6G');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -403,24 +400,14 @@ def build_blog_cards_html(posts):
     return "\n".join(cards)
 
 
-def build_posts_js_array(posts):
-    items = []
-    for post in posts:
-        body_js = js_template_escape(post['body'])
-        title_js = post['title'].replace("\\", "\\\\").replace("'", "\\'")
-        items.append(
-            "    {\n"
-            f"      tag: '{post['tag']}',\n"
-            f"      title: '{title_js}',\n"
-            f"      date: '{post['date']}',\n"
-            f"      read: '{post['read']}',\n"
-            f"      body: `\n{body_js}\n      `\n"
-            "    }"
-        )
-    return "const posts = [\n" + ",\n".join(items) + "\n  ];"
-
-
 def update_index_html(posts):
+    # NOTE: index.html used to also carry a duplicate in-app `posts` JS array
+    # and a hidden #page-post reader (POSTS_ARRAY_START/END markers). Both
+    # were dead code — every blog card links straight to the real, crawlable
+    # blog/<slug>/ page instead of using the in-app reader — and the array
+    # alone was ~24KB of duplicated post text shipped on every homepage
+    # load. Both were removed; this function now only refreshes the blog
+    # card grid on the homepage.
     with open(INDEX_HTML, encoding="utf-8") as f:
         content = f.read()
 
@@ -433,16 +420,6 @@ def update_index_html(posts):
         sys.exit("ERROR: BLOG_CARDS_START/END markers not found in index.html — "
                  "did you edit around them by hand?")
     content = cards_pattern.sub(lambda m: m.group(1) + cards_html + m.group(3), content, count=1)
-
-    posts_js = build_posts_js_array(posts)
-    posts_pattern = re.compile(
-        r'(// POSTS_ARRAY_START.*?\n)\s*const posts = \[.*?\n  \];(\n  // POSTS_ARRAY_END)',
-        re.S
-    )
-    if not posts_pattern.search(content):
-        sys.exit("ERROR: POSTS_ARRAY_START/END markers not found in index.html — "
-                 "did you edit around them by hand?")
-    content = posts_pattern.sub(lambda m: m.group(1) + "  " + posts_js + m.group(2), content, count=1)
 
     with open(INDEX_HTML, "w", encoding="utf-8") as f:
         f.write(content)
