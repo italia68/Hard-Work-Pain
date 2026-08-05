@@ -371,19 +371,33 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 <!-- ══ GOOGLE ANALYTICS ══ -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEKMG83C6G"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
   gtag('config', 'G-TEKMG83C6G');
+
+  // Defer loading the GTM script itself (161KB) until the page is idle or
+  // the visitor first interacts, so it doesn't compete with initial render.
+  function loadGA() {{
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TEKMG83C6G';
+    document.head.appendChild(s);
+  }}
+  ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function (evt) {{
+    window.addEventListener(evt, loadGA, {{ once: true, passive: true }});
+  }});
+  window.addEventListener('load', function () {{ setTimeout(loadGA, 3000); }});
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 <style>
   :root {{
     --gold: #FFB612;

@@ -53,20 +53,34 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
 <!-- ══ GOOGLE ANALYTICS ══ -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TEKMG83C6G"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-TEKMG83C6G');
+
+  // Defer loading the GTM script itself (161KB) until the page is idle or
+  // the visitor first interacts, so it doesn't compete with initial render.
+  function loadGA() {
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TEKMG83C6G';
+    document.head.appendChild(s);
+  }
+  ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function (evt) {
+    window.addEventListener(evt, loadGA, { once: true, passive: true });
+  });
+  window.addEventListener('load', function () { setTimeout(loadGA, 3000); });
 </script>
 
 <!-- ══ FONTS ══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 <style>
   :root {
     --gold: #FFB612;
@@ -1184,7 +1198,7 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" onclick="showPage('home')">HARD WORK <span>&</span> PAIN</a>
+  <a class="nav-logo" href="/" onclick="showPage('home')">HARD WORK <span>&</span> PAIN</a>
   <ul class="nav-links" id="nav-links">
     <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
     <li><a href="/about/" id="nav-about">About</a></li>
@@ -1201,6 +1215,7 @@
   </div>
 </nav>
 
+<main>
 <!-- ══ HOME ══ -->
 <div class="page active" id="page-home">
   <div class="announce-bar" onclick="window.location.href='/platemate/'">
@@ -1360,6 +1375,7 @@
     <!-- BLOG_CARDS_END -->
   </div>
 </div>
+</main>
 
 <!-- FOOTER -->
 <footer>
