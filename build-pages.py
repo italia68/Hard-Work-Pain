@@ -393,7 +393,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   }}
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   html {{ scroll-behavior: smooth; }}
-  body {{ background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; }}
+  body {{ background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }}
 
   nav {{
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -410,7 +410,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   .nav-cta {{ background: var(--gold); color: #000; border: none; padding: 9px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s; }}
   .nav-cta:hover {{ background: var(--gold-dim); }}
   .nav-actions {{ display: flex; align-items: center; gap: 16px; }}
-  .nav-toggle {{ display: none; background: none; border: none; cursor: pointer; width: 26px; height: 20px; flex-direction: column; justify-content: space-between; padding: 0; }}
+  .nav-toggle {{ display: none; flex-shrink: 0; background: none; border: none; cursor: pointer; width: 26px; height: 20px; flex-direction: column; justify-content: space-between; padding: 0; }}
   .nav-toggle span {{ display: block; width: 100%; height: 2px; background: var(--white); transition: transform 0.25s ease, opacity 0.25s ease; }}
   .nav-toggle.open span:nth-child(1) {{ transform: translateY(9px) rotate(45deg); }}
   .nav-toggle.open span:nth-child(2) {{ opacity: 0; }}
@@ -537,8 +537,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   .footer-links a:hover {{ color: var(--gold); }}
 
   @media (max-width: 768px) {{
-    nav {{ padding: 0 20px; }}
+    nav {{ padding: 0 20px; gap: 8px; }}
     .nav-toggle {{ display: flex; }}
+    .nav-logo {{ font-size: 18px; letter-spacing: 1px; }}
+    .nav-actions {{ gap: 8px; }}
+    .nav-cta {{ padding: 8px 12px; font-size: 11px; }}
     .nav-links {{
       position: fixed; top: 64px; left: 0; right: 0;
       flex-direction: column; gap: 0;
@@ -558,6 +561,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .values-grid {{ margin: 40px 20px 0; }}
     .contact-links {{ grid-template-columns: 1fr; }}
     footer {{ flex-direction: column; align-items: flex-start; padding: 28px 20px; }}
+  }}
+  @media (max-width: 400px) {{
+    .nav-cta {{ display: none; }}
   }}
 </style>
 </head>
