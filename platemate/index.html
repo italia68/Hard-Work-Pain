@@ -84,6 +84,9 @@
   }
   .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--gold); letter-spacing: 2px; text-decoration: none; }
   .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
   .nav-cta {
     background: var(--gold); color: #000; border: none; padding: 9px 20px;
     font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
@@ -217,30 +220,73 @@
 
   @media (max-width: 600px) {
     nav { padding: 0 20px; }
+    .nav-links { display: none; }
     .step-row { flex-direction: column; gap: 8px; }
     .big-num { font-size: 36px; }
     footer { flex-direction: column; align-items: flex-start; }
   }
+
+  /* MEET PLATEMATE INTRO */
+  .app-hero {
+    padding: 80px 40px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .app-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 1px;
+    line-height: 1.05;
+    margin: 12px 0 20px;
+  }
+  .app-hero h1 span { color: var(--gold); }
+  .app-hero p { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 600px; margin: 0 auto; }
+  .app-cta { text-align: center; padding: 40px 20px 0; }
+  .app-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .app-cta > p { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="https://hardworkandpain.com" class="nav-logo">Hard Work <span>&amp; Pain</span></a>
-  <a href="https://italia68.github.io/Platemate/" class="nav-cta" target="_blank">Open App</a>
+  <a href="https://hardworkandpain.com" class="nav-logo">HARD WORK <span>&amp; PAIN</span></a>
+  <ul class="nav-links">
+    <li><a href="https://hardworkandpain.com/">Home</a></li>
+    <li><a href="https://hardworkandpain.com/about/">About</a></li>
+    <li><a href="https://hardworkandpain.com/#blog">Blog</a></li>
+    <li><a href="https://hardworkandpain.com/platemate/" class="active">Platemate</a></li>
+    <li><a href="https://hardworkandpain.com/updates/">Updates</a></li>
+    <li><a href="https://hardworkandpain.com/contact/">Contact</a></li>
+  </ul>
+  <a href="https://italia68.github.io/Platemate/" class="nav-cta" target="_blank">Get the App</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="eyebrow">Free Workout Tracker</div>
-  <h1>Get <span>Platemate</span></h1>
-  <p>The workout tracker built by a lifter, for lifters. Install it on any device in seconds — no App Store, no account walls, no fluff.</p>
-  <a href="https://italia68.github.io/Platemate/" class="cta-btn" target="_blank">Open Platemate →</a>
+<section class="app-hero">
+  <div class="eyebrow">Your Training Companion</div>
+  <h1>MEET <span>PLATE</span>MATE</h1>
+  <p>The no-nonsense workout tracker built for people who take their training seriously. Log lifts, track cardio, and watch your progress build over time.</p>
 </section>
 
+<div class="app-cta">
+  <h2>READY TO START <span style="color:var(--gold)">TRACKING?</span></h2>
+  <p>Free to use. No download required. Just open it and go.</p>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <a href="#install" style="display:inline-block;padding:14px 32px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border:1px solid var(--gold);color:var(--gold);transition:background 0.2s">How to Install &amp; Get Started →</a>
+    <div style="font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase">or</div>
+    <a href="https://italia68.github.io/Platemate/" class="cta-btn" target="_blank">Launch Platemate →</a>
+  </div>
+</div>
+
 <!-- INSTALL SECTION -->
-<section class="section">
+<section class="section" id="install">
   <div class="eyebrow">Step Zero</div>
   <h2 class="section-title">Install on <span>Any Device</span></h2>
   <p class="section-sub">Platemate is a Progressive Web App (PWA). That means it works like a native app — no download needed — and you can add it to your home screen for instant access.</p>
