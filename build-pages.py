@@ -409,6 +409,12 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   .nav-links a:hover {{ color: var(--gold); }}
   .nav-cta {{ background: var(--gold); color: #000; border: none; padding: 9px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s; }}
   .nav-cta:hover {{ background: var(--gold-dim); }}
+  .nav-actions {{ display: flex; align-items: center; gap: 16px; }}
+  .nav-toggle {{ display: none; background: none; border: none; cursor: pointer; width: 26px; height: 20px; flex-direction: column; justify-content: space-between; padding: 0; }}
+  .nav-toggle span {{ display: block; width: 100%; height: 2px; background: var(--white); transition: transform 0.25s ease, opacity 0.25s ease; }}
+  .nav-toggle.open span:nth-child(1) {{ transform: translateY(9px) rotate(45deg); }}
+  .nav-toggle.open span:nth-child(2) {{ opacity: 0; }}
+  .nav-toggle.open span:nth-child(3) {{ transform: translateY(-9px) rotate(-45deg); }}
 
   main {{ padding-top: 64px; }}
 
@@ -532,11 +538,25 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
   @media (max-width: 768px) {{
     nav {{ padding: 0 20px; }}
-    .nav-links {{ display: none; }}
+    .nav-toggle {{ display: flex; }}
+    .nav-links {{
+      position: fixed; top: 64px; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: var(--black); border-bottom: 1px solid var(--border);
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+    }}
+    .nav-links.open {{ max-height: 480px; }}
+    .nav-links li {{ width: 100%; }}
+    .nav-links a {{ display: block; padding: 16px 24px; font-size: 14px; border-bottom: 1px solid var(--border); }}
     .the-standard-grid {{ grid-template-columns: 1fr; }}
     .standard-image-wrapper {{ height: 320px; }}
+    .standard-values-list li {{ font-size: 24px; }}
+    .about-page-hero-content {{ padding: 60px 20px; }}
+    .the-standard {{ padding: 60px 20px; }}
     .contact-wrap, .updates-header {{ padding: 60px 20px 40px; }}
     .values-grid {{ margin: 40px 20px 0; }}
+    .contact-links {{ grid-template-columns: 1fr; }}
     footer {{ flex-direction: column; align-items: flex-start; padding: 28px 20px; }}
   }}
 </style>
@@ -545,7 +565,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
 <nav>
   <a href="{site_url}/" class="nav-logo">HARD WORK <span>&amp; PAIN</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="{site_url}/">Home</a></li>
     <li><a href="{site_url}/about/">About</a></li>
     <li><a href="{site_url}/#blog">Blog</a></li>
@@ -553,7 +573,12 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <li><a href="{site_url}/updates/">Updates</a></li>
     <li><a href="{site_url}/contact/">Contact</a></li>
   </ul>
-  <a href="{site_url}/platemate/" class="nav-cta">Get the App</a>
+  <div class="nav-actions">
+    <a href="{site_url}/platemate/" class="nav-cta">Get the App</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <main>
@@ -572,6 +597,22 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="{site_url}/contact/">Contact</a>
   </div>
 </footer>
+<script>
+  function toggleMobileMenu() {{
+    var links = document.getElementById('nav-links');
+    var toggle = document.getElementById('nav-toggle');
+    var isOpen = links.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }}
+  document.querySelectorAll('.nav-links a').forEach(function(a) {{
+    a.addEventListener('click', function() {{
+      document.getElementById('nav-links').classList.remove('open');
+      document.getElementById('nav-toggle').classList.remove('open');
+      document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+    }});
+  }});
+</script>
 {extra_script}
 </body>
 </html>

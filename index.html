@@ -127,6 +127,13 @@
 
   .nav-cta:hover { background: var(--gold-dim); }
 
+  .nav-actions { display: flex; align-items: center; gap: 16px; }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 26px; height: 20px; flex-direction: column; justify-content: space-between; padding: 0; }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--white); transition: transform 0.25s ease, opacity 0.25s ease; }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
   /* ── PAGES ── */
   .page { display: none; padding-top: 64px; min-height: 100vh; }
   .page.active { display: block; }
@@ -1113,17 +1120,32 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 0 20px; }
-    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      position: fixed; top: 64px; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: var(--black); border-bottom: 1px solid var(--border);
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .nav-links.open { max-height: 480px; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 16px 24px; font-size: 14px; border-bottom: 1px solid var(--border); }
     .about-hero { grid-template-columns: 1fr; gap: 40px; }
     .about-visual { display: none; }
     .section { padding: 60px 20px; }
     .blog-grid, .app-features, .features-grid, .values-grid, .contact-links { margin: 0 20px; }
+    .blog-card, .app-feature, .feature-card, .value-card { min-width: 100%; max-width: 100%; }
     .stats-bar { grid-template-columns: 1fr; }
     .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
     .stat-item:last-child { border-bottom: none; }
     footer { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
     .blog-header, .contact-wrap, .app-hero, .post-wrap { padding: 60px 20px 40px; }
     .app-cta { padding: 60px 20px; }
+    .contact-links { grid-template-columns: 1fr; }
+    .standard-values-list li { font-size: 24px; }
+    .hero-btns { flex-direction: column; width: 100%; }
+    .hero-btns .btn-primary, .hero-btns .btn-outline { width: 100%; max-width: 320px; text-align: center; }
   }
 </style>
 </head>
@@ -1132,7 +1154,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" onclick="showPage('home')">HARD WORK <span>&</span> PAIN</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
     <li><a href="/about/" id="nav-about">About</a></li>
     <li><a href="#" onclick="showPage('blog')" id="nav-blog">Blog</a></li>
@@ -1140,7 +1162,12 @@
     <li><a href="/updates/" id="nav-updates">Updates</a></li>
     <li><a href="/contact/" id="nav-contact">Contact</a></li>
   </ul>
-  <a class="nav-cta" href="/platemate/">Get the App</a>
+  <div class="nav-actions">
+    <a class="nav-cta" href="/platemate/">Get the App</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- ══ HOME ══ -->
@@ -1941,6 +1968,19 @@
     const next = currentPostIndex + dir;
     if (next >= 0 && next < posts.length) showPost(next);
   }
+
+  function toggleMobileMenu() {
+    const links = document.getElementById('nav-links');
+    const toggle = document.getElementById('nav-toggle');
+    const isOpen = links.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('nav-toggle').classList.remove('open');
+    document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+  }));
 </script>
 </body>
 </html>
