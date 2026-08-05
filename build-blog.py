@@ -152,6 +152,8 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   gtag('config', 'G-TEKMG83C6G');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {{
@@ -251,11 +253,11 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
     <li><a href="{site_url}/">Home</a></li>
     <li><a href="{site_url}/#about">About</a></li>
     <li><a href="{site_url}/#blog">Blog</a></li>
-    <li><a href="{site_url}/platemate">Platemate</a></li>
+    <li><a href="{site_url}/platemate/">Platemate</a></li>
     <li><a href="{site_url}/#contact">Contact</a></li>
   </ul>
   <div class="nav-actions">
-    <a href="{site_url}/platemate" class="nav-cta">Get the App</a>
+    <a href="{site_url}/platemate/" class="nav-cta">Get the App</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -288,7 +290,7 @@ POST_PAGE_TEMPLATE = """<!DOCTYPE html>
   <div class="footer-links">
     <a href="{site_url}/">Home</a>
     <a href="{site_url}/#blog">Blog</a>
-    <a href="{site_url}/platemate">Platemate</a>
+    <a href="{site_url}/platemate/">Platemate</a>
     <a href="{site_url}/#contact">Contact</a>
   </div>
 </footer>

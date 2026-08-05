@@ -26,6 +26,26 @@
 <meta name="twitter:description" content="No shortcuts. No excuses. Track your lifts with Platemate and read honest fitness content built for people who show up." />
 <meta name="twitter:image" content="https://hardworkandpain.com/og-image.jpg" />
 
+<!-- ══ STRUCTURED DATA ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Hard Work & Pain",
+  "url": "https://hardworkandpain.com/",
+  "logo": "https://hardworkandpain.com/og-image.jpg"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Hard Work & Pain",
+  "url": "https://hardworkandpain.com/",
+  "description": "Hard Work & Pain is a fitness community built for serious lifters. Track your workouts with Platemate, read no-BS training content, and embrace the grind."
+}
+</script>
+
 <!-- ══ FAVICON ══ -->
 <!-- Add these files to your repo root: favicon.ico, favicon-32x32.png, apple-touch-icon.png -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -42,6 +62,8 @@
 </script>
 
 <!-- ══ FONTS ══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
@@ -1276,59 +1298,6 @@
   </div>
 </div>
 
-<!-- ══ ABOUT ══ -->
-<div class="page" id="page-about">
-  <section class="about-page-hero">
-    <div class="about-page-hero-bg"></div>
-    <div class="about-page-hero-content">
-      <h1>NO SHORTCUTS.<br><span>NO EXCUSES.</span></h1>
-      <p>Hard Work & Pain is a fitness community driving long-term progress through data and discipline. We provide evidence-based training knowledge and the tools required for dedicated lifters who reject hype and clickbait.</p>
-    </div>
-  </section>
-
-  <section class="the-standard">
-    <div class="the-standard-grid">
-      <div>
-        <h2>The Standard</h2>
-        <p class="the-standard-desc">We stand as a gritty, evidence-based alternative to mainstream fitness culture. Progress isn't bought, it's earned through a philosophical commitment to the work.</p>
-        <ul class="standard-values-list">
-          <li>Discipline</li>
-          <li>Data-Driven Progress</li>
-          <li>Consistency</li>
-          <li>Honesty</li>
-          <li>Effort</li>
-        </ul>
-      </div>
-      <div class="standard-image-wrapper">
-        <img src="weight-plates.jpg" alt="Stacked weight plates">
-      </div>
-    </div>
-  </section>
-
-  <div class="values-grid">
-    <div class="value-card">
-      <div class="value-num">01</div>
-      <div class="value-title">Consistency</div>
-      <div class="value-desc">Show up. Every single day. Results are built on repetition, not motivation.</div>
-    </div>
-    <div class="value-card">
-      <div class="value-num">02</div>
-      <div class="value-title">Honesty</div>
-      <div class="value-desc">No shortcuts. No gimmicks. We tell you what actually works, even when it's hard to hear.</div>
-    </div>
-    <div class="value-card">
-      <div class="value-num">03</div>
-      <div class="value-title">Progression</div>
-      <div class="value-desc">Every session should move you forward. Track it, measure it, own it.</div>
-    </div>
-    <div class="value-card">
-      <div class="value-num">04</div>
-      <div class="value-title">Community</div>
-      <div class="value-desc">We're all fighting different battles. Respect the grind, support the journey.</div>
-    </div>
-  </div>
-</div>
-
 <!-- ══ BLOG ══ -->
 <div class="page" id="page-blog">
   <div class="blog-header">
@@ -1471,152 +1440,6 @@
       <div class="app-feature-icon">📱</div>
       <div class="app-feature-title">Works on Any Device</div>
       <div class="app-feature-desc">A PWA built for mobile. Add it to your home screen and it works like a native app, no App Store needed.</div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ UPDATES ══ -->
-<div class="page" id="page-updates">
-  <div class="updates-header">
-    <h1>THE <span>GRIND</span> LOG</h1>
-    <p>Every update to Platemate, from the very first commit to today. No spin, no marketing fluff — just what actually shipped and when.</p>
-  </div>
-
-  <div class="timeline">
-
-    <div class="timeline-entry is-latest">
-      <div class="timeline-meta">
-        <span class="timeline-version">v1.3</span>
-        <span class="timeline-date">July 29, 2026</span>
-      </div>
-      <div class="timeline-title">Nutrition Tracking Arrives</div>
-      <ul class="timeline-list">
-        <li>New Food tab — log calories, protein, carbs &amp; fat for every day</li>
-        <li>Food search across a built-in common-foods library, the USDA FoodData Central database, and Open Food Facts for packaged items</li>
-        <li>Set daily calorie &amp; macro goals and watch progress bars fill in</li>
-        <li>Log food straight from the main + button on Today, alongside lifts and cardio</li>
-        <li>Fixed a bug where per-set weights weren't actually saving when editing a logged exercise</li>
-      </ul>
-    </div>
-
-    <div class="timeline-entry">
-      <div class="timeline-meta">
-        <span class="timeline-version">v1.2</span>
-        <span class="timeline-date">July 28, 2026</span>
-      </div>
-      <div class="timeline-title">Shared Templates, Reimagined</div>
-      <ul class="timeline-list">
-        <li>Renamed Community → Shared Templates</li>
-        <li>Search and muscle-group filters when browsing Shared Templates</li>
-        <li>Like templates you find useful</li>
-        <li>Add Cardio activities directly inside a template, not just strength exercises</li>
-        <li>Fixed weight not saving correctly when editing exercises inside a template</li>
-        <li>Templates now show who created them</li>
-        <li>Cleaner spacing and layout on template cards</li>
-      </ul>
-    </div>
-
-    <div class="timeline-entry">
-      <div class="timeline-meta">
-        <span class="timeline-version">—</span>
-        <span class="timeline-date">Mid-Late July 2026</span>
-      </div>
-      <div class="timeline-title">Growth, SEO &amp; an Admin Dashboard</div>
-      <ul class="timeline-list">
-        <li>Converted the blog to real static pages — each post got its own crawlable URL, title, and meta description</li>
-        <li>Added a repeatable build script so new blog posts take one command instead of hand-built pages</li>
-        <li>Added Organization, WebSite, and FAQ structured data to help the site actually surface in search</li>
-        <li>Built an admin dashboard: total users, workout/cardio/template counts, a searchable user table</li>
-        <li>User profiles now track signup date and last login</li>
-        <li>Fixed a silent Firestore security rule bug that was affecting Shared Templates</li>
-      </ul>
-    </div>
-
-    <div class="timeline-entry">
-      <div class="timeline-meta">
-        <span class="timeline-version">—</span>
-        <span class="timeline-date">Late June 2026</span>
-      </div>
-      <div class="timeline-title">Hard Work &amp; Pain Launches</div>
-      <ul class="timeline-list">
-        <li>Built this website — Home, About, Blog, Platemate, and Contact — to give Platemate a real home</li>
-        <li>Migrated Platemate from Netlify to GitHub Pages for reliable, free hosting</li>
-        <li>Unified History — lifting and cardio sessions now show together in one chronological timeline</li>
-        <li>Replaced the old PRs tab with a full Analytics dashboard: streaks, volume trends, a 30-day heatmap, and auto-tracked personal records</li>
-      </ul>
-    </div>
-
-    <div class="timeline-entry">
-      <div class="timeline-meta">
-        <span class="timeline-version">v1.0 – v1.1</span>
-        <span class="timeline-date">Mid-June 2026</span>
-      </div>
-      <div class="timeline-title">The Big Rebuild</div>
-      <ul class="timeline-list">
-        <li>Rebuilt logging around a real set-by-set system — every set gets its own weight and reps, not just one number per exercise</li>
-        <li>Full-screen exercise picker with muscle-group filters, replacing a plain text field</li>
-        <li>Visual dumbbell and barbell plate-loading calculators</li>
-        <li>Templates arrive — save a routine once, reuse it forever, with early community sharing</li>
-        <li>Added every Les Mills class and 20+ other cardio activities</li>
-        <li>Versioned "what's new" splash screen so updates don't go unnoticed</li>
-        <li>Forgot-password flow and toast notifications replacing plain browser alerts</li>
-      </ul>
-    </div>
-
-    <div class="timeline-entry">
-      <div class="timeline-meta">
-        <span class="timeline-version">v0.1</span>
-        <span class="timeline-date">June 2026</span>
-      </div>
-      <div class="timeline-title">Day One</div>
-      <ul class="timeline-list">
-        <li>Platemate is born — a simple exercise and cardio logger, no fluff, built to solve one problem: losing track of your lifts</li>
-        <li>Firebase Auth and Firestore added so data is never tied to a single browser again</li>
-        <li>Multi-set support for machine exercises where weight changes set to set</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-<!-- ══ CONTACT ══ -->
-<div class="page" id="page-contact">
-  <div class="contact-wrap">
-    <div class="section-eyebrow">Get in touch</div>
-    <h1>LET'S <span style="color:var(--gold)">TALK</span></h1>
-    <p class="contact-sub">Questions about Platemate, collab ideas, or just want to talk training? Send a message.</p>
-
-    <form action="https://formsubmit.co/hardworkandpain26@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New message from hardworkandpain.com" />
-      <input type="hidden" name="_captcha" value="false" />
-      <div class="form-group">
-        <label class="form-label">Your Name</label>
-        <input class="form-input" type="text" name="name" placeholder="First and last name" required />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" name="email" placeholder="your@email.com" required />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Subject</label>
-        <input class="form-input" type="text" name="subject" placeholder="What's this about?" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">Message</label>
-        <textarea class="form-input" name="message" placeholder="Tell us what's on your mind..." required></textarea>
-      </div>
-      <button class="btn-primary" type="submit" style="width:100%;font-size:14px;padding:16px">Send Message</button>
-    </form>
-
-    <div class="contact-links">
-      <div class="contact-link-card">
-        <div class="contact-link-label">App</div>
-        <div class="contact-link-value">Platemate PWA</div>
-      </div>
-      <div class="contact-link-card">
-        <div class="contact-link-label">Based In</div>
-        <div class="contact-link-value">Chicago, IL</div>
-      </div>
     </div>
   </div>
 </div>
@@ -1936,11 +1759,8 @@
 
   const pageTitles = {
     home: 'Hard Work & Pain | Fitness Community & Workout Tracker',
-    about: 'About | Hard Work & Pain',
     blog: 'Blog | Hard Work & Pain',
     platemate: 'Platemate | Hard Work & Pain',
-    updates: 'Updates | Hard Work & Pain',
-    contact: 'Contact | Hard Work & Pain',
   };
 
   function showPage(name) {
